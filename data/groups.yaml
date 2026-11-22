@@ -10,3 +10,15 @@ groups:
       - Lírico
     djs:
       - R de Rumba
+
+  - name: Cloaka Company
+    id: cloaka-company
+    carreer:
+      start: 2001
+      end: 2006
+    mcs:
+      - FranFueTheFirst
+      - Erik B.
+      - Xhelazz
+    djs:
+      - Hazhe

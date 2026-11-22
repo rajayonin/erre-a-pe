@@ -35,3 +35,19 @@ mcs:
     birthyear: 1981
     carreer:
       start: 1997
+
+  - artist-name: FranFueTheFirst
+    full-name: Francesc Tamarite
+    aliases:
+      - Dimecres
+    birthplace: Zaragoza (La Jota)
+    birthyear: 1984
+    carreer:
+      start: 1994
+
+  - artist-name: Erik B.
+    full-name: Erik Miguel Beeler
+    birthplace: Zaragoza
+    birthyear: 1978
+    carreer:
+      start: 1994

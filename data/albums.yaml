@@ -13,3 +13,10 @@ albums:
     place: Zaragoza
     label: Rap Solo / Boa Musica
     cover: album-covers/el-soñador-elegido.jpeg
+
+  - title: Verso Municcione
+    artist: Cloaka Company
+    year: 2003
+    place: Zaragoza
+    label: Fünkdamental
+    cover: album-covers/verso-municcione.jpeg

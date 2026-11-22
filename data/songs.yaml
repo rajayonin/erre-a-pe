@@ -13,6 +13,19 @@ songs:
     youtube: 'https://youtu.be/s9vCva1m8OU'
     spotify: 'https://open.spotify.com/track/5AIwfXYjGkWCs4KeeTk2Rq'
 
+  - title: Vivir Para Contarlo
+    artist: Violadores Del Verso
+    album: Vivir para Contarlo
+    mcs:
+      - Kase.O
+      - Lírico
+      - Hate
+    djs:
+      - R de Rumba
+    lyrics: lyrics/vivir-para-contarlo.txt
+    youtube: 'https://youtu.be/brwIP1wI-FA'
+    spotify: 'https://open.spotify.com/track/17W8iO8o6sO87L4be1rB0l'
+
   - title: Solo Importa el Rap
     artist: Xhelazz
     album: El Soñador Elegido
@@ -28,3 +41,14 @@ songs:
     lyrics: lyrics/solo-importa-el-rap.txt
     youtube: 'https://youtu.be/9ovgNGbzTC0'
     spotify: 'https://open.spotify.com/track/5m01OcrvXDSOjZlov5CWle'
+  
+  - title: L'Enigma D'Esmeralda
+    artist: Cloaka Company
+    album: Verso Municcione
+    mcs:
+      - FranFueTheFirst
+      - Erik B.
+      - Xhelazz
+    djs:
+      - Hazhe
+    lyrics: lyrics/lenigma-desmeralda.txt

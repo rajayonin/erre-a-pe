@@ -8,3 +8,10 @@ djs:
     birthyear: 1976
     carreer:
       start: 1990
+
+  - artist-name: Hazhe
+    full-name: Eric Cunningham
+    birthplace: Zaragoza
+    birthyear: 1980
+    carreer:
+      start: 1993
