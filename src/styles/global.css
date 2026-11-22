@@ -628,8 +628,8 @@ main:focus {
   gap: 4px 0;
   margin-top: 8px;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -691,6 +691,7 @@ main:focus {
 
 .song-details {
   display: grid;
+  align-items: start;
   gap: 12px;
   margin-top: 14px;
 }
@@ -1050,6 +1051,31 @@ main:focus {
   align-items: center;
   gap: 6px 11px;
   margin-bottom: 14px;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.part-head::-webkit-details-marker {
+  display: none;
+}
+
+.part-chevron {
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  flex: none;
+  color: var(--faint);
+  transition: transform 0.2s ease, color 0.16s ease;
+}
+
+.part[open] .part-chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.part-head:hover .part-chevron {
+  color: var(--text);
 }
 
 .part-label {
@@ -1365,20 +1391,6 @@ main:focus {
   .song-details {
     grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
     gap: 14px;
-  }
-
-  .panel-collapsible:not([open]) > .panel-content {
-    display: block;
-  }
-
-  .panel-collapsible summary.panel-title {
-    pointer-events: none;
-    cursor: default;
-    margin-bottom: 12px;
-  }
-
-  .panel-chevron {
-    display: none;
   }
 
   .listen-link--icon .listen-icon svg {

@@ -21,7 +21,7 @@ const isPerson = 'kind' in info && info.kind !== undefined;
 const kind = isPerson ? (info.kind === 'dj' ? 'DJ' : 'MC') : 'Grupo';
 const color = isPerson ? info.color : 'var(--accent-2)';
 
-type Row = [string, string];
+type Row = [string, string, boolean?];
 const rows: Row[] = [];
 
 if (isPerson) {
@@ -41,8 +41,8 @@ if (isPerson) {
     const person = peopleById?.get(id);
     return person?.name ?? id;
   };
-  if (group.mcs.length) rows.push(['MCs', group.mcs.map(memberSummary).join(', ')]);
-  if (group.djs.length) rows.push(['DJs', group.djs.map(memberSummary).join(', ')]);
+  if (group.mcs.length) rows.push(['MC', group.mcs.map(memberSummary).join(', '), group.mcs.length > 1]);
+  if (group.djs.length) rows.push(['DJ', group.djs.map(memberSummary).join(', '), group.djs.length > 1]);
 }
 
 const rootClass = variant === 'chip' ? 'chip chip-details' : 'info-trigger';
@@ -64,9 +64,9 @@ const rootClass = variant === 'chip' ? 'chip chip-details' : 'info-trigger';
     {
       rows.length ? (
         <dl class="chip-pop-facts">
-          {rows.map(([label, value]) => (
+          {rows.map(([label, value, plural]) => (
             <>
-              <dt>{label}</dt>
+              <dt>{label}{plural && <span class="credit-label-s">s</span>}</dt>
               <dd>{value}</dd>
             </>
           ))}

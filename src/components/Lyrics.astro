@@ -31,12 +31,13 @@ function accentFor(performers: { color?: string }[]): string | null {
         {parts.map((part) => {
           const accent = accentFor(part.performers);
           return (
-            <section
+            <details
               class="part"
               data-kind={part.kind}
               style={accent ? `--part-accent: ${accent}` : undefined}
+              open
             >
-              <header class="part-head">
+              <summary class="part-head">
                 <span class="part-label">{part.label}</span>
                 {part.performers.length > 0 && (
                   <span class="part-performers">
@@ -51,7 +52,10 @@ function accentFor(performers: { color?: string }[]): string | null {
                     ))}
                   </span>
                 )}
-              </header>
+                <svg class="part-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
               <div class="part-body">
                 {part.stanzas.map((stanza) => (
                   <p class="stanza">
@@ -61,7 +65,7 @@ function accentFor(performers: { color?: string }[]): string | null {
                   </p>
                 ))}
               </div>
-            </section>
+            </details>
           );
         })}
       </div>
