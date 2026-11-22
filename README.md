@@ -36,12 +36,12 @@ bun run preview  # serve the dist/ build
        year: 2008
        place: Zaragoza
        label: Mi Sello
-       cover: album-covers/mi-disco.jpeg
+       cover: covers/mi-disco.jpeg
    ```
 
    `id` is optional and derived from the title when omitted. `cover` is optional:
-   the build also looks for `data/album-covers/<id>.<ext>` or
-   `data/album-covers/<slug-of-title>.<ext>` with `.jpeg`, `.jpg`, `.png` or `.webp`.
+   the build also looks for `data/covers/<id>.<ext>` or
+   `data/covers/<slug-of-title>.<ext>` with `.jpeg`, `.jpg`, `.png` or `.webp`.
 
 2. Register the people in `data/mcs.yaml` / `data/djs.yaml` (or let the build add
    them with a warning), then add the song to `data/songs.yaml`:
