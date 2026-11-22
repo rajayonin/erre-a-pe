@@ -79,7 +79,10 @@ const yearSpan =
                   </span>
                   <span class="track-copy">
                     <span class="track-title">{song.title}</span>
-                    <span class="track-artist">{artistLabel}</span>
+                  <span class="track-artist">
+                    {artistLabel}
+                    {song.features.length > 0 && <> ft. {song.features.join(', ')}</>}
+                  </span>
                     {meta && <span class="track-meta">{meta}</span>}
                   </span>
                 </a>

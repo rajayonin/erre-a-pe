@@ -62,8 +62,9 @@ bun run preview  # serve the dist/ build
        # spotify: https://open.spotify.com/track/…    # optional direct link
    ```
 
-   `album` accepts the exact album title. `features` are free-text group
-   names; the build warns when a feature is not present in `groups.yaml`.
+   `album` accepts the exact album title. `features` can name a group or a
+   registered MC or DJ; the build warns when a feature is not present in
+   `groups.yaml`, `mcs.yaml` or `djs.yaml`.
    `youtube` and `spotify` are optional direct links per song; when left empty,
    the song page falls back to YouTube/Spotify search URLs.
 

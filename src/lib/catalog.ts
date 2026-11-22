@@ -106,7 +106,6 @@ async function normalizeSongs(
   const seen = new Set<string>();
   const albumById = new Map(albums.map((album) => [album.id, album]));
   const albumByTitle = new Map(albums.map((album) => [normalizeName(album.title), album]));
-  const groupNames = new Set(groups.map((group) => normalizeName(group.name)));
 
   const requirePerson = (name: string, kind: 'mc' | 'dj', label: string) => {
     const person = peopleState.resolvePerson(name);
@@ -132,8 +131,10 @@ async function normalizeSongs(
     const features = unique(source.features ?? []);
 
     for (const feature of features) {
-      if (!groupNames.has(normalizeName(feature))) {
-        warnings.push(`Feature "${feature}" in ${label} is not listed in groups.yaml.`);
+      const isGroup = groups.some((group) => normalizeName(group.name) === normalizeName(feature));
+      const isPerson = peopleState.resolvePerson(feature) !== undefined;
+      if (!isGroup && !isPerson) {
+        warnings.push(`Feature "${feature}" in ${label} is not listed in groups.yaml, mcs.yaml, or djs.yaml.`);
       }
     }
 
