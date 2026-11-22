@@ -28,7 +28,7 @@ These validate the hand-written YAML before normalization.
 | `djs-file.schema.json`    | `djs.yaml`      | `djs`             | Same shape as an MC entry.                                            |
 | `groups-file.schema.json` | `groups.yaml`   | `groups`          | Each group needs `name`; optional `id`, `mcs`, `djs`.                  |
 | `albums-file.schema.json` | `albums.yaml`   | `albums`          | Each album needs `title` and `artist`; optional `id`, `year`, `place`, `label`, `cover`, `links`. |
-| `songs-file.schema.json`  | `songs.yaml`    | `songs`           | Each song needs `id`, `title`, `artist`, `album`; optional `features`, `mcs`, `djs`, `lyrics`, `audio`, `links`. |
+| `songs-file.schema.json`  | `songs.yaml`    | `songs`           | Each song needs `id`, `title`, `artist`, `album`; optional `features`, `mcs`, `djs`, `lyrics`, `links`. |
 
 Source-file schemas describe what you may write, not the final data. References
 such as `album`, `mcs` and `djs` are plain strings at this stage; they are
@@ -42,7 +42,7 @@ resolved during normalization.
 | `person.schema.json`    | A normalized MC/DJ/other person, including slug `id`, `kind`, `color`, `aliases` and group references. |
 | `group.schema.json`     | A normalized group with `mcs` and `djs` as person IDs.            |
 | `album.schema.json`     | A normalized album, including the derived `songIds` list.         |
-| `song.schema.json`      | A normalized song: resolved `albumId`, `features`, `credits`, parsed `lyrics`, generated `listen` search URLs, optional `audio` and `links`. |
+| `song.schema.json`      | A normalized song: resolved `albumId`, `features`, `credits`, parsed `lyrics`, generated `listen` search URLs, optional `links`. |
 | `lyrics.schema.json`    | A parsed lyrics document: `parts` with `label`, inferred `kind`, `performers`, and `stanzas`. |
 
 `lyrics.schema.json` is referenced from `song.schema.json` (and may be `null` for

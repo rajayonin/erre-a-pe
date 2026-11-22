@@ -10,14 +10,14 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "title", "artist", "album"],
+        "required": ["title", "artist", "album"],
         "properties": {
           "id": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/slug" },
           "title": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
           "artist": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
           "album": {
             "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
-            "description": "Album id (preferred) or exact album title."
+            "description": "Exact album title (or album id as fallback)."
           },
           "features": {
             "type": "array",
@@ -45,10 +45,6 @@
           "spotify": {
             "type": ["string", "null"],
             "description": "Optional direct Spotify URL for this song. Empty falls back to a search link."
-          },
-          "audio": {
-            "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
-            "description": "Optional audio file, relative to the repository root."
           },
           "links": {
             "type": "array",

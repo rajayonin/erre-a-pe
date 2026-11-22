@@ -129,16 +129,6 @@ const meta = [album.year, album.place].filter(Boolean) as (number | string)[];
           ))
         }
       </div>
-      {
-        song.audio && (
-          <audio
-            class="audio-player"
-            controls
-            preload="none"
-            src={assetUrl(song.audio) ?? undefined}
-          />
-        )
-      }
     </div>
   </div>
 </header>

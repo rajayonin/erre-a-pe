@@ -31,8 +31,7 @@ bun run preview  # serve the dist/ build
 
    ```yaml
    albums:
-     - id: mi-disco
-       title: Mi Disco
+     - title: Mi Disco
        artist: Mi Grupo
        year: 2008
        place: Zaragoza
@@ -49,10 +48,9 @@ bun run preview  # serve the dist/ build
 
    ```yaml
    songs:
-     - id: mi-cancion
-       title: Mi Canción
+     - title: Mi Canción
        artist: Mi Grupo
-       album: mi-disco
+       album: Mi Disco
        features:
          - Otro Grupo
        mcs:
@@ -62,10 +60,9 @@ bun run preview  # serve the dist/ build
        lyrics: lyrics/mi-cancion.txt
        # youtube: https://www.youtube.com/watch?v=…   # optional direct link
        # spotify: https://open.spotify.com/track/…    # optional direct link
-       # audio: audio/mi-cancion.mp3   # optional
    ```
 
-   `album` accepts the album `id` or its title. `features` are free-text group
+   `album` accepts the exact album title. `features` are free-text group
    names; the build warns when a feature is not present in `groups.yaml`.
    `youtube` and `spotify` are optional direct links per song; when left empty,
    the song page falls back to YouTube/Spotify search URLs.

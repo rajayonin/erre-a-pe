@@ -169,13 +169,6 @@ async function normalizeSongs(
       },
     };
 
-    if (source.audio) {
-      const audio = normalizeRelativePath(source.audio);
-      if (!(await exists(path.join(DATA_DIR, audio)))) {
-        throw new Error(`Audio file for ${label} was not found: ${audio}`);
-      }
-      song.audio = audio;
-    }
     if (source.links) song.links = source.links;
 
     album.songIds.push(id);
