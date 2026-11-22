@@ -26,7 +26,7 @@ const rows: Row[] = [];
 
 if (isPerson) {
   const person = info as Person;
-  if (person.fullName) rows.push(['Nombre completo', person.fullName]);
+  if (person.fullName) rows.push(['Nombre', person.fullName]);
   if (person.aliases.length) rows.push(['Alias', person.aliases.join(', ')]);
   if (person.birthplace) rows.push(['Ciudad', person.birthplace]);
   if (person.birthyear) rows.push(
