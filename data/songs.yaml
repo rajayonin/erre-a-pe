@@ -7,7 +7,7 @@ songs:
       - Kase.O
     djs:
       - R de Rumba
-    lyrics: lyrics/cantando.txt
+    lyrics: lyrics/cantando
     youtube: https://youtu.be/s9vCva1m8OU
     spotify: https://open.spotify.com/track/5AIwfXYjGkWCs4KeeTk2Rq
 
@@ -20,7 +20,7 @@ songs:
       - Hate
     djs:
       - R de Rumba
-    lyrics: lyrics/vivir-para-contarlo.txt
+    lyrics: lyrics/vivir-para-contarlo
     youtube: https://youtu.be/brwIP1wI-FA
     spotify: https://open.spotify.com/track/17W8iO8o6sO87L4be1rB0l
 
@@ -35,7 +35,7 @@ songs:
       - Paco King
     djs:
       - Jotamayúscula
-    lyrics: lyrics/rimadero.txt
+    lyrics: lyrics/rimadero
     youtube: https://youtu.be/JAPu2CVqThM
     spotify: https://open.spotify.com/track/4ebVgCsZ2bMb0llev1NbkG
 
@@ -51,7 +51,7 @@ songs:
       - Xhelazz
     djs:
       - R de Rumba
-    lyrics: lyrics/solo-importa-el-rap.txt
+    lyrics: lyrics/solo-importa-el-rap
     youtube: https://youtu.be/9ovgNGbzTC0
     spotify: https://open.spotify.com/track/5m01OcrvXDSOjZlov5CWle
 
@@ -64,7 +64,7 @@ songs:
       - Xhelazz
     djs:
       - Hazhe
-    lyrics: lyrics/lenigma-desmeralda.txt
+    lyrics: lyrics/lenigma-desmeralda
     youtube: https://youtu.be/Va-exN6k4s8
     spotify: https://open.spotify.com/track/4oaV7KVzqwi2c1UmRFBeI9
 
@@ -75,6 +75,6 @@ songs:
       - ToteKing
     djs:
       - Big Hozone
-    lyrics: lyrics/ni-de-ellos-ni-de-ellas.txt
+    lyrics: lyrics/ni-de-ellos-ni-de-ellas
     spotify: https://open.spotify.com/track/39wZnCweVaOR3J6HSK3Dvs
 

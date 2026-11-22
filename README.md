@@ -57,7 +57,7 @@ bun run preview  # serve the dist/ build
          - Kase.O
        djs:
          - R de Rumba
-       lyrics: lyrics/mi-cancion.txt
+       lyrics: lyrics/mi-cancion
        # youtube: https://www.youtube.com/watch?v=…   # optional direct link
        # spotify: https://open.spotify.com/track/…    # optional direct link
    ```

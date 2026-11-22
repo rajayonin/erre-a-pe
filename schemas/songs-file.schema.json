@@ -36,7 +36,7 @@
           },
           "lyrics": {
             "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
-            "description": "Path to a lyrics .txt file, relative to the repository root."
+            "description": "Path to a lyrics file, relative to the repository root."
           },
           "youtube": {
             "type": ["string", "null"],

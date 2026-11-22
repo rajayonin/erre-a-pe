@@ -46,7 +46,7 @@ resolved during normalization.
 | `lyrics.schema.json`    | A parsed lyrics document: `parts` with `label`, inferred `kind`, `performers`, and `stanzas`. |
 
 `lyrics.schema.json` is referenced from `song.schema.json` (and may be `null` for
-a song without lyrics). There is no schema for the raw `.txt` lyrics because
+a song without lyrics). There is no schema for the raw lyrics because
 they are not JSON; the parser in `scripts/lib/lyrics.mjs` turns them into the
 shape defined here.
 
