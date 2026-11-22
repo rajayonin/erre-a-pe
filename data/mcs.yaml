@@ -51,3 +51,49 @@ mcs:
     birthyear: 1978
     carreer:
       start: 1994
+
+  - artist-name: Supernafamacho
+    full-name: José María Nafría
+    birthplace: Madrid (Carabanchel)
+    birthyear: 1973
+    aliases:
+      - Nafri
+    carreer:
+      start: 1991
+
+  - artist-name: Mr. Rango
+    full-name: José Miñano
+    birthplace: Madrid (Vallecas)
+    birthyear: 1972
+    carreer:
+      start: 1990
+
+  - artist-name: Kamikaze
+    full-name: Rachid Baggasse
+    birthplace: Alicante
+    birthyear: 1970
+    carreer:
+      start: 1985
+
+  - artist-name: Paco King
+    full-name: Francisco Reyes
+    birthplace: Madrid
+    birthyear: 1971
+    carreer:
+      start: 1989
+
+  - artist-name: El Meswy
+    full-name: José Luis Magro
+    birthplace: Alcorcón
+    birthyear: 1972
+    carreer:
+      start: 1988
+
+  - artist-name: Frank T
+    full-name: Franklin Tshimini
+    birthplace: Torrejón de Ardoz
+    birthyear: 1973
+    aliases:
+      - Skayner
+    carreer:
+      start: 1988

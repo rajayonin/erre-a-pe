@@ -20,3 +20,10 @@ albums:
     place: Zaragoza
     label: Fünkdamental
     cover: album-covers/verso-municcione.jpeg
+
+  - title: Madrid Zona Bruta
+    artist: C.P.V. (El Club de los Poetas Violentos)
+    year: 1994
+    place: Madrid
+    label: Yo Gano
+    cover: album-covers/madrid-zona-bruta.jpeg
