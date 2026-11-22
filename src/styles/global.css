@@ -516,6 +516,10 @@ main:focus {
   background: var(--panel);
 }
 
+.song-hero:has(.info-trigger[open]) {
+  z-index: 2;
+}
+
 .hero-bg-clip {
   position: absolute;
   inset: 0;
@@ -701,6 +705,11 @@ main:focus {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: linear-gradient(160deg, rgba(29, 24, 19, 0.72), rgba(17, 14, 11, 0.55));
+}
+
+.panel:has(.chip-details[open]) {
+  position: relative;
+  z-index: 2;
 }
 
 .panel-title {
@@ -897,6 +906,11 @@ main:focus {
   position: relative;
 }
 
+.chip-details[open],
+.info-trigger[open] {
+  z-index: 81;
+}
+
 .chip-pop {
   position: absolute;
   top: calc(100% + 8px);
@@ -1085,6 +1099,17 @@ main:focus {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.part-repeat {
+  padding: 2px 6px;
+  border: 1px solid rgba(244, 236, 223, 0.12);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .part-performers {

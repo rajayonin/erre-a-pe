@@ -1,7 +1,7 @@
 import type { PartKind, Performer, Person } from './types';
 import { normalizeName } from './slug';
 
-const FALLBACK_COLORS = ['#f2a93b', '#6fc3df', '#e879a6', '#b6d94c', '#b79cff', '#f08a5d', '#7bd3b1', '#e6c86e'];
+const FALLBACK_COLORS = ['#f28e2b', '#6fc3df', '#e879a6', '#4c78a8', '#b79cff', '#f08a5d', '#e45756', '#8e6cba'];
 
 export function colorForUnknown(name: string): string {
   let hash = 0;

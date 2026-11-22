@@ -2,14 +2,14 @@ import type { Group, Person, PersonKind, RawGroup, RawPerson } from './types';
 import { normalizeName, slugify, unique } from './slug';
 
 export const PERSON_COLORS = [
-  '#f2a93b',
+  '#f28e2b',
   '#6fc3df',
   '#e879a6',
-  '#b6d94c',
+  '#4c78a8',
   '#b79cff',
   '#f08a5d',
-  '#7bd3b1',
-  '#e6c86e',
+  '#e45756',
+  '#8e6cba',
 ];
 
 export class PeopleState {
