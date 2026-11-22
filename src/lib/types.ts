@@ -11,6 +11,7 @@ export interface Person {
   kind: PersonKind;
   fullName?: string;
   birthplace?: string;
+  birthyear?: number;
   aliases: string[];
   groups: PersonGroup[];
   color: string;
@@ -112,6 +113,7 @@ export interface RawPerson {
   'full-name'?: string;
   aliases?: string[];
   birthplace?: string;
+  birthyear?: number;
 }
 
 export interface RawGroup {

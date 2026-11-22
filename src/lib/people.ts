@@ -45,6 +45,7 @@ export class PeopleState {
       aliases: raw.aliases ?? [],
       groups: [],
       color: this.nextColor(),
+      birthyear: raw.birthyear
     };
     if (raw['full-name']) person.fullName = raw['full-name'];
     if (raw.birthplace) person.birthplace = raw.birthplace;

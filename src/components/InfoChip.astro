@@ -6,6 +6,8 @@ interface Props {
   info: Person | Group;
   /** Needed to resolve group member names. */
   peopleById?: Map<string, Person>;
+  /** If provided, the pill shows the age the person had at that year */
+  currentYear?: number;
   /**
    * 'chip' renders the pill used for credits; 'trigger' renders the
    * underlined text used for artist/feature names.
@@ -13,7 +15,7 @@ interface Props {
   variant?: 'chip' | 'trigger';
 }
 
-const { info, peopleById, variant = 'chip' } = Astro.props;
+const { info, peopleById, currentYear, variant = 'chip' } = Astro.props;
 const isPerson = 'kind' in info && info.kind !== undefined;
 
 const kind = isPerson ? (info.kind === 'dj' ? 'DJ' : 'MC') : 'Grupo';
@@ -25,14 +27,19 @@ const rows: Row[] = [];
 if (isPerson) {
   const person = info as Person;
   if (person.fullName) rows.push(['Nombre completo', person.fullName]);
-  if (person.birthplace) rows.push(['Lugar de nacimiento', person.birthplace]);
   if (person.aliases.length) rows.push(['Alias', person.aliases.join(', ')]);
+  if (person.birthplace) rows.push(['Ciudad', person.birthplace]);
+  if (person.birthyear) rows.push(
+    currentYear ?
+    ['Edad', `${currentYear - person.birthyear} (${person.birthyear})`]
+    : ['Fecha nacimiento', person.birthyear.toString()]
+  );
   if (person.groups.length) rows.push(['Grupos', person.groups.map((g) => g.name).join(', ')]);
 } else {
   const group = info as Group;
   const memberSummary = (id: string) => {
     const person = peopleById?.get(id);
-    return person ? (person.fullName ? `${person.name} (${person.fullName})` : person.name) : id;
+    return person?.name ?? id;
   };
   if (group.mcs.length) rows.push(['MCs', group.mcs.map(memberSummary).join(', ')]);
   if (group.djs.length) rows.push(['DJs', group.djs.map(memberSummary).join(', ')]);

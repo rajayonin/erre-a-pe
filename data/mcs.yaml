@@ -5,17 +5,15 @@ mcs:
     aliases:
       - Javat
       - Javato Jones
-      - La Palmera Que Se Dobla Pero Aguanta El Huracán
     birthplace: Zaragoza (La Jota)
-  
+    birthyear: 1980
+
   - artist-name: Sho-Hai
     full-name: Sergio Rodríguez
     aliases:
       - Hate
-      - Yuen Hsiao Tien
-      - Gran Mago Beodo
-      - Sergio Bolínguez
     birthplace: Zaragoza (Delicias)
+    birthyear: 1976
 
   - artist-name: Lírico
     full-name: David Gilaberte
@@ -23,9 +21,9 @@ mcs:
       - Gila
       - Capricornio
     birthplace: Zaragoza (ACTUR)
+    birthyear: 1976
 
   - artist-name: Xhelazz
     full-name: Mario Celimendiz
-    aliases:
-      - El Soñador Elegido
     birthplace: Zaragoza (La Jota)
+    birthyear: 1981

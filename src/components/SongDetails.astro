@@ -31,7 +31,7 @@ const djs = song.credits.djs.map((id) => peopleById.get(id)).filter(Boolean);
       )}
       {album?.place && (
         <>
-          <dt class="fact-label">Lugar</dt>
+          <dt class="fact-label">Ciudad</dt>
           <dd class="fact-value">{album.place}</dd>
         </>
       )}
@@ -52,7 +52,7 @@ const djs = song.credits.djs.map((id) => peopleById.get(id)).filter(Boolean);
           <span class="credit-label">MCs</span>
           <div class="chip-list">
             {mcs.map((person) => (
-              <InfoChip info={person!} peopleById={peopleById} />
+              <InfoChip info={person!} peopleById={peopleById} currentYear={album?.year} />
             ))}
           </div>
         </div>
@@ -64,7 +64,7 @@ const djs = song.credits.djs.map((id) => peopleById.get(id)).filter(Boolean);
           <span class="credit-label">DJs</span>
           <div class="chip-list">
             {djs.map((person) => (
-              <InfoChip info={person!} peopleById={peopleById} />
+              <InfoChip info={person!} peopleById={peopleById} currentYear={album?.year} />
             ))}
           </div>
         </div>
