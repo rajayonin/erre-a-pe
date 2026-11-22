@@ -47,6 +47,7 @@ export class PeopleState {
       color: this.nextColor(),
       birthyear: raw.birthyear
     };
+    if (raw.carreer) person.carreer = raw.carreer;
     if (raw['full-name']) person.fullName = raw['full-name'];
     if (raw.birthplace) person.birthplace = raw.birthplace;
 
@@ -131,6 +132,7 @@ export function normalizeGroups(sourceGroups: RawGroup[], state: PeopleState): G
     const group: Group = {
       id,
       name: source.name,
+      carreer: source.carreer,
       mcs: unique((source.mcs ?? []).map((name) => state.ensurePerson(name, 'mc', `group "${source.name}"`).id)),
       djs: unique((source.djs ?? []).map((name) => state.ensurePerson(name, 'dj', `group "${source.name}"`).id)),
     };

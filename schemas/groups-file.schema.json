@@ -13,6 +13,7 @@
         "properties": {
           "id": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/slug" },
           "name": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "carreer": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/career" },
           "mcs": {
             "type": "array",
             "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },

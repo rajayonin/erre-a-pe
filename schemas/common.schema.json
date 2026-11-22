@@ -25,6 +25,14 @@
       "type": "string",
       "pattern": "^#[0-9a-fA-F]{6}$"
     },
+    "career": {
+      "type": "object",
+      "properties": {
+        "start": { "type": "integer", "minimum": 1900, "maximum": 2100 },
+        "end": { "type": "integer", "minimum": 1900, "maximum": 2100 }
+      },
+      "additionalProperties": false
+    },
     "link": {
       "type": "object",
       "required": ["label", "url"],

@@ -7,6 +7,8 @@ mcs:
       - Javato Jones
     birthplace: Zaragoza (La Jota)
     birthyear: 1980
+    carreer:
+      start: 1991
 
   - artist-name: Sho-Hai
     full-name: Sergio Rodríguez
@@ -14,6 +16,8 @@ mcs:
       - Hate
     birthplace: Zaragoza (Delicias)
     birthyear: 1976
+    carreer:
+      start: 1997
 
   - artist-name: Lírico
     full-name: David Gilaberte
@@ -22,8 +26,12 @@ mcs:
       - Capricornio
     birthplace: Zaragoza (ACTUR)
     birthyear: 1976
+    carreer:
+      start: 1991
 
   - artist-name: Xhelazz
     full-name: Mario Celimendiz
     birthplace: Zaragoza (La Jota)
     birthyear: 1981
+    carreer:
+      start: 1997

@@ -1,5 +1,10 @@
 export type PersonKind = 'mc' | 'dj';
 
+export interface Career {
+  start?: number;
+  end?: number;
+}
+
 export interface PersonGroup {
   id: string;
   name: string;
@@ -12,6 +17,7 @@ export interface Person {
   fullName?: string;
   birthplace?: string;
   birthyear?: number;
+  carreer?: Career;
   aliases: string[];
   groups: PersonGroup[];
   color: string;
@@ -20,6 +26,7 @@ export interface Person {
 export interface Group {
   id: string;
   name: string;
+  carreer?: Career;
   mcs: string[];
   djs: string[];
 }
@@ -61,6 +68,7 @@ export type PartKind =
 export interface LyricPart {
   id: string;
   label: string;
+  repeat?: number;
   kind: PartKind;
   performers: Performer[];
   stanzas: string[][];
@@ -113,11 +121,13 @@ export interface RawPerson {
   aliases?: string[];
   birthplace?: string;
   birthyear?: number;
+  carreer?: Career;
 }
 
 export interface RawGroup {
   id?: string;
   name: string;
+  carreer?: Career;
   mcs?: string[];
   djs?: string[];
 }

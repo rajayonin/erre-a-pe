@@ -26,6 +26,7 @@ const rows: Row[] = [];
 
 if (isPerson) {
   const person = info as Person;
+  if (person.carreer?.start) rows.push(['Años', `${person.carreer.start}–${person.carreer.end ?? 'presente'}`]);
   if (person.fullName) rows.push(['Nombre', person.fullName]);
   if (person.aliases.length) rows.push(['Alias', person.aliases.join(', ')]);
   if (person.birthplace) rows.push(['Ciudad', person.birthplace]);
@@ -37,6 +38,7 @@ if (isPerson) {
   if (person.groups.length) rows.push(['Grupos', person.groups.map((g) => g.name).join(', ')]);
 } else {
   const group = info as Group;
+  if (group.carreer?.start) rows.push(['Años', `${group.carreer.start}–${group.carreer.end ?? 'presente'}`]);
   const memberSummary = (id: string) => {
     const person = peopleById?.get(id);
     return person?.name ?? id;

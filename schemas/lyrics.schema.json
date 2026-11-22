@@ -21,6 +21,7 @@
       "properties": {
         "id": { "type": "string", "pattern": "^part-[0-9]+$" },
         "label": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+        "repeat": { "type": "integer", "minimum": 2 },
         "kind": {
           "enum": ["intro", "verse", "pre-chorus", "chorus", "bridge", "interlude", "outro", "other"]
         },

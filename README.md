@@ -105,6 +105,9 @@ Segunda línea
 ...
 ```
 
+Add a repeat count after a part header to show a repeat badge on the song page:
+`[Estribillo: Lírico, Kase.O] (x2)`.
+
 - The label before `:` names the part. The part kind (`intro`, `verse`,
   `pre-chorus`, `chorus`, `bridge`, `interlude`, `outro`, `other`) is inferred
   from that label.

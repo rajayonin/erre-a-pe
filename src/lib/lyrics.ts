@@ -31,6 +31,7 @@ function splitPerformers(raw: string): string[] {
 interface ParsedHeader {
   label: string;
   performers: string[];
+  repeat?: number;
 }
 
 function parseHeader(content: string, lookupPerson: (name: string) => { name: string } | null): ParsedHeader {
@@ -61,6 +62,7 @@ export interface ParsedLyrics {
   parts: {
     id: string;
     label: string;
+    repeat?: number;
     kind: PartKind;
     performers: Performer[];
     stanzas: string[][];
@@ -110,7 +112,7 @@ export function parseLyrics(
     current = null;
   };
 
-  const startPart = (label: string, performerNames: string[]) => {
+  const startPart = (label: string, performerNames: string[], repeat?: number) => {
     flushPart();
     partNumber += 1;
 
@@ -127,6 +129,7 @@ export function parseLyrics(
     current = {
       id: `part-${partNumber}`,
       label: label.trim() || 'Letra',
+      ...(repeat ? { repeat } : {}),
       kind: detectKind(label),
       performers,
       stanzas: [],
@@ -140,10 +143,11 @@ export function parseLyrics(
       continue;
     }
 
-    const header = line.match(/^\[(.+)\]$/);
+    const header = line.match(/^\[(.+)\](?:\s+\(x(\d+)\))?$/i);
     if (header) {
       const parsed = parseHeader(header[1], lookupPerson);
-      startPart(parsed.label, parsed.performers);
+      const repeat = header[2] ? Number(header[2]) : undefined;
+      startPart(parsed.label, parsed.performers, repeat && repeat > 1 ? repeat : undefined);
       continue;
     }
 

@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=../schemas/groups-file.schema.json
 groups:
-  - id: violadores-del-verso
-    name: Violadores Del Verso
+  - name: Violadores Del Verso
+    id: violadores-del-verso
+    carreer:
+      start: 1997
     mcs:
       - Kase.O
       - Sho-Hai
