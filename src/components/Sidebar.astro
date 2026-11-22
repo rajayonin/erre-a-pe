@@ -34,7 +34,7 @@ const yearSpan =
 <aside class="sidebar" id="sidebar" aria-label="Cancionero">
   <a
     class="brand"
-    href={catalog.songs[0] ? `/song/${catalog.songs[0].id}/` : '/'}
+    href={catalog.songs[0] ? `${import.meta.env.BASE_URL}/song/${catalog.songs[0].id}/` : import.meta.env.BASE_URL}
   >
     <span class="brand-title">{catalog.meta.title}</span>
     <span class="brand-sub">
@@ -58,7 +58,7 @@ const yearSpan =
               <li>
                 <a
                   class="track"
-                  href={`/song/${song.id}/`}
+                  href={`${import.meta.env.BASE_URL}/song/${song.id}/`}
                   aria-current={song.id === currentSongId ? 'page' : undefined}
                 >
                   <span class="track-no" aria-hidden="true">

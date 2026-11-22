@@ -16,7 +16,7 @@ const next = index >= 0 && index < songs.length - 1 ? songs[index + 1] : undefin
   (previous || next) && (
     <nav class="pager" aria-label="Otras canciones">
       {previous && (
-        <a class="pager-link prev" href={`/song/${previous.id}/`}>
+        <a class="pager-link prev" href={`${import.meta.env.BASE_URL}/song/${previous.id}/`}>
           <span class="pager-arrow" aria-hidden="true">
             ←
           </span>
@@ -29,7 +29,7 @@ const next = index >= 0 && index < songs.length - 1 ? songs[index + 1] : undefin
         </a>
       )}
       {next && (
-        <a class="pager-link next" href={`/song/${next.id}/`}>
+        <a class="pager-link next" href={`${import.meta.env.BASE_URL}/song/${next.id}/`}>
           <span class="pager-copy">
             <span class="pager-label">Siguiente</span>
             <span class="pager-title">
