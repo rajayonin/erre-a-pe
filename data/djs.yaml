@@ -23,3 +23,10 @@ djs:
     carreer:
       start: 1993
       end: 2020
+
+  - artist-name: Big Hozone
+    full-name: Jorge Masot
+    birthplace: Málaga
+    birthyear: 1979
+    carreer:
+      start: 2000

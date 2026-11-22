@@ -27,3 +27,10 @@ albums:
     place: Madrid
     label: Yo Gano
     cover: album-covers/madrid-zona-bruta.jpeg
+
+  - title: Un Tipo Cualquiera
+    year: 2006
+    artist: ToteKing
+    place: Sevilla
+    label: Boa Música
+    cover: album-covers/un-tipo-cualquiera.jpeg

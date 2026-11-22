@@ -97,3 +97,13 @@ mcs:
       - Skayner
     carreer:
       start: 1988
+
+  - artist-name: ToteKing
+    full-name: Manuel González
+    birthplace: Sevilla (La Macarena)
+    birthyear: 1978
+    carreer:
+      start: 1997
+      end: 2024
+    aliases:
+      - Toterreno

@@ -34,7 +34,7 @@ songs:
       - Kamikaze
       - Paco King
     djs:
-     - Jotamayúscula
+      - Jotamayúscula
     lyrics: lyrics/rimadero.txt
     youtube: https://youtu.be/JAPu2CVqThM
     spotify: https://open.spotify.com/track/4ebVgCsZ2bMb0llev1NbkG
@@ -67,3 +67,14 @@ songs:
     lyrics: lyrics/lenigma-desmeralda.txt
     youtube: https://youtu.be/Va-exN6k4s8
     spotify: https://open.spotify.com/track/4oaV7KVzqwi2c1UmRFBeI9
+
+  - title: Ni de Ellos ni de Ellas
+    artist: ToteKing
+    album: Un Tipo Cualquiera
+    mcs:
+      - ToteKing
+    djs:
+      - Big Hozone
+    lyrics: lyrics/ni-de-ellos-ni-de-ellas.txt
+    spotify: https://open.spotify.com/track/39wZnCweVaOR3J6HSK3Dvs
+
