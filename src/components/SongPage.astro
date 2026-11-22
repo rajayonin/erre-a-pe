@@ -1,0 +1,24 @@
+---
+import SongHero from './SongHero.astro';
+import SongDetails from './SongDetails.astro';
+import Lyrics from './Lyrics.astro';
+import Pager from './Pager.astro';
+import type { Catalog, Song } from '../lib/types';
+
+interface Props {
+  song: Song;
+  catalog: Catalog;
+}
+
+const { song, catalog } = Astro.props;
+const album = catalog.albums.find((entry) => entry.id === song.albumId);
+if (!album) throw new Error(`Song "${song.id}" references unknown album "${song.albumId}"`);
+const position = catalog.songs.findIndex((entry) => entry.id === song.id) + 1;
+---
+
+<article class="song">
+  <SongHero song={song} album={album} catalog={catalog} position={position} total={catalog.songs.length} />
+  <SongDetails song={song} catalog={catalog} />
+  <Lyrics song={song} />
+  <Pager songs={catalog.songs} songId={song.id} />
+</article>

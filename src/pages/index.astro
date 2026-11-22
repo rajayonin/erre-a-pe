@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import SongPage from '../components/SongPage.astro';
+import { buildCatalogCached } from '../lib/catalog-cache';
+
+// The home page IS the first song page — no redirect.
+const catalog = await buildCatalogCached();
+const first = catalog.songs[0];
+---
+
+{
+  first ? (
+    <Base
+      title={`${first.title} — ${first.artist} | ${catalog.meta.title}`}
+      songTitle={first.title}
+      currentSongId={first.id}
+      songNumber={1}
+    >
+      <SongPage song={first} catalog={catalog} />
+    </Base>
+  ) : (
+    <Base title={catalog.meta.title}>
+      <p class="empty-state">Todavía no hay canciones.</p>
+    </Base>
+  )
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://erre-a-pe.local/schemas/song.schema.json",
+  "title": "Song",
+  "description": "A normalized song in the generated catalog.",
+  "type": "object",
+  "required": ["id", "title", "artist", "albumId", "features", "credits", "lyrics", "listen"],
+  "properties": {
+    "id": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/slug" },
+    "title": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+    "artist": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+    "albumId": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/albumId" },
+    "features": {
+      "type": "array",
+      "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+      "uniqueItems": true
+    },
+    "credits": {
+      "type": "object",
+      "required": ["mcs", "djs"],
+      "properties": {
+        "mcs": {
+          "type": "array",
+          "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/personId" },
+          "uniqueItems": true
+        },
+        "djs": {
+          "type": "array",
+          "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/personId" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "lyrics": {
+      "anyOf": [
+        { "$ref": "https://erre-a-pe.local/schemas/lyrics.schema.json" },
+        { "type": "null" }
+      ]
+    },
+    "listen": {
+      "type": "object",
+      "required": ["youtube", "spotify"],
+      "properties": {
+        "youtube": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/url" },
+        "spotify": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/url" }
+      },
+      "additionalProperties": false
+    },
+    "audio": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+    "links": {
+      "type": "array",
+      "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/link" }
+    }
+  },
+  "additionalProperties": false
+}

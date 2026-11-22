@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://erre-a-pe.local/schemas/albums-file.schema.json",
+  "title": "albums.yaml",
+  "type": "object",
+  "required": ["albums"],
+  "properties": {
+    "albums": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "artist"],
+        "properties": {
+          "id": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/slug" },
+          "title": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "artist": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "year": { "type": "integer", "minimum": 1900, "maximum": 2100 },
+          "place": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "label": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "cover": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "links": {
+            "type": "array",
+            "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/link" }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

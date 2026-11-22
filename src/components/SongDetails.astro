@@ -1,0 +1,74 @@
+---
+import type { Catalog, Song } from '../lib/types';
+import InfoChip from './InfoChip.astro';
+
+interface Props {
+  song: Song;
+  catalog: Catalog;
+}
+
+const { song, catalog } = Astro.props;
+
+const peopleById = new Map(catalog.people.map((person) => [person.id, person]));
+const album = catalog.albums.find((entry) => entry.id === song.albumId);
+const mcs = song.credits.mcs.map((id) => peopleById.get(id)).filter(Boolean);
+const djs = song.credits.djs.map((id) => peopleById.get(id)).filter(Boolean);
+---
+
+<div class="song-details">
+  <section class="panel">
+    <h2 class="panel-title">Disco</h2>
+    <dl class="album-facts">
+      <dt class="fact-label">Álbum</dt>
+      <dd class="fact-value">{album?.title ?? song.albumId}</dd>
+      <dt class="fact-label">Artista</dt>
+      <dd class="fact-value">{album?.artist ?? song.artist}</dd>
+      {album?.year && (
+        <>
+          <dt class="fact-label">Año</dt>
+          <dd class="fact-value">{album.year}</dd>
+        </>
+      )}
+      {album?.place && (
+        <>
+          <dt class="fact-label">Lugar</dt>
+          <dd class="fact-value">{album.place}</dd>
+        </>
+      )}
+      {album?.label && (
+        <>
+          <dt class="fact-label">Sello</dt>
+          <dd class="fact-value">{album.label}</dd>
+        </>
+      )}
+    </dl>
+  </section>
+
+  <section class="panel">
+    <h2 class="panel-title">En la grabación</h2>
+    {
+      mcs.length > 0 && (
+        <div class="credit-row">
+          <span class="credit-label">MCs</span>
+          <div class="chip-list">
+            {mcs.map((person) => (
+              <InfoChip info={person!} peopleById={peopleById} />
+            ))}
+          </div>
+        </div>
+      )
+    }
+    {
+      djs.length > 0 && (
+        <div class="credit-row">
+          <span class="credit-label">DJs</span>
+          <div class="chip-list">
+            {djs.map((person) => (
+              <InfoChip info={person!} peopleById={peopleById} />
+            ))}
+          </div>
+        </div>
+      )
+    }
+  </section>
+</div>

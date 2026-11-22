@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import SongPage from '../../components/SongPage.astro';
+import { buildCatalogCached } from '../../lib/catalog-cache';
+
+export async function getStaticPaths() {
+  const catalog = await buildCatalogCached();
+  return catalog.songs.map((song) => ({
+    params: { song: song.id },
+    props: { song },
+  }));
+}
+
+const { song } = Astro.props;
+const catalog = await buildCatalogCached();
+const position = catalog.songs.findIndex((entry) => entry.id === song.id) + 1;
+---
+
+<Base
+  title={`${song.title} — ${song.artist} | ${catalog.meta.title}`}
+  songTitle={song.title}
+  currentSongId={song.id}
+  songNumber={position}
+>
+  <SongPage song={song} catalog={catalog} />
+</Base>

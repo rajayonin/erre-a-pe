@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../schemas/albums-file.schema.json
+albums:
+  - id: vivir-para-contarlo
+    title: Vivir para Contarlo
+    artist: Violadores Del Verso
+    year: 2006
+    place: Zaragoza
+    label: Rap Solo / Boa Musica
+    cover: album-covers/vivir-para-contarlo.jpeg
+
+  - id: el-sonador-elegido
+    title: El Soñador Elegido
+    artist: Xhelazz
+    year: 2007
+    place: Zaragoza
+    label: Rap Solo / Boa Musica
+    cover: album-covers/el-soñador-elegido.jpeg

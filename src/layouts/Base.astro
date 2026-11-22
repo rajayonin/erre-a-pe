@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+import Sidebar from '../components/Sidebar.astro';
+import { buildCatalogCached } from '../lib/catalog-cache';
+
+interface Props {
+  title: string;
+  songTitle?: string;
+  currentSongId?: string;
+  /** 1-based position in the catalogue, shown next to the song title. */
+  songNumber?: number;
+}
+
+const { title, songTitle, currentSongId, songNumber } = Astro.props;
+const catalog = await buildCatalogCached();
+---
+
+<!doctype html>
+<html lang="es" data-reading-size="lg">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0907" />
+    <meta
+      name="description"
+      content="Cancionero de rap para leer mientras suena. Letras de Violadores del Verso y Xhelazz, canción a canción."
+    />
+    <title>{title}</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0907'/%3E%3Ctext x='32' y='46' font-family='Arial Black,Arial,sans-serif' font-size='40' font-weight='900' text-anchor='middle' fill='%23e8642a'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <script is:inline>
+      // Apply the saved reading size before first paint to avoid a flash.
+      try {
+        var saved = localStorage.getItem('erre-a-pe:reading-size');
+        if (saved === 'sm' || saved === 'lg') document.documentElement.dataset.readingSize = saved;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar a la letra</a>
+
+    <div class="app-shell">
+      <div class="drawer-backdrop" aria-hidden="true"></div>
+
+      <Sidebar catalog={catalog} currentSongId={currentSongId} />
+
+      <div class="main-column">
+        <header class="topbar">
+          <button
+            class="icon-button menu-button"
+            id="menu-button"
+            type="button"
+            aria-label="Abrir cancionero"
+            aria-controls="sidebar"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h10"></path>
+            </svg>
+          </button>
+
+          <div class="topbar-title">
+            <span class="topbar-kicker">Cancionero</span>
+            <span class="topbar-song">
+              {songNumber !== undefined && (
+                <span class="topbar-number">{String(songNumber).padStart(2, '0')}</span>
+              )}
+              {songTitle ?? catalog.meta.title}
+            </span>
+          </div>
+
+          <button
+            class="icon-button size-button"
+            id="size-button"
+            type="button"
+            aria-label="Tamaño de letra: grande"
+            title="Tamaño de letra: grande"
+          >
+            <span class="size-a">A</span><span class="size-a size-a-small">a</span>
+          </button>
+        </header>
+
+        <main id="main" tabindex="-1">
+          <slot />
+        </main>
+      </div>
+    </div>
+
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://erre-a-pe.local/schemas/person.schema.json",
+  "title": "Person",
+  "description": "A normalized MC, DJ, or other credited person in the generated catalog.",
+  "type": "object",
+  "required": ["id", "name", "kind", "color", "aliases", "groups"],
+  "properties": {
+    "id": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/slug" },
+    "name": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+    "kind": { "enum": ["mc", "dj", "other"] },
+    "fullName": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+    "aliases": {
+      "type": "array",
+      "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+      "uniqueItems": true
+    },
+    "birthplace": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+    "groups": {
+      "type": "array",
+      "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/groupRef" },
+      "uniqueItems": true
+    },
+    "color": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/hexColor" }
+  },
+  "additionalProperties": false
+}

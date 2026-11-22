@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../schemas/site-file.schema.json
+site:
+  title: Erre a Pé
+  tagline: Decibelia Listening Party
+  # Shown in the sidebar next to the computed year span (falls back to the
+  # album places when omitted).
+  place: España
+  playlist:
+    # Put the playlist URL here; it shows up as a link in the sidebar.
+    label: Escuchar la playlist
+    url: https://open.spotify.com/playlist/0OuDhihcY5OJo9Qv3C8R2q

@@ -1,0 +1,121 @@
+---
+import type { Catalog } from '../lib/types';
+import { assetUrl } from '../lib/assets';
+
+interface Props {
+  catalog: Catalog;
+  currentSongId?: string;
+}
+
+const { catalog, currentSongId } = Astro.props;
+
+function initials(value: string): string {
+  return value
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase();
+}
+
+const albumsById = new Map(catalog.albums.map((album) => [album.id, album]));
+const total = catalog.songs.length;
+
+const years = catalog.albums.map((album) => album.year).filter((year): year is number => year !== undefined);
+const yearSpan =
+  years.length > 0
+    ? years.length === 1 || Math.min(...years) === Math.max(...years)
+      ? `${Math.min(...years)}`
+      : `${Math.min(...years)}—${Math.max(...years)}`
+    : null;
+---
+
+<aside class="sidebar" id="sidebar" aria-label="Cancionero">
+  <a
+    class="brand"
+    href={catalog.songs[0] ? `/song/${catalog.songs[0].id}/` : '/'}
+  >
+    <span class="brand-title">{catalog.meta.title}</span>
+    <span class="brand-sub">
+      {catalog.meta.tagline}
+      <br />
+      {[catalog.meta.place, yearSpan].filter(Boolean).join(' · ')}
+    </span>
+  </a>
+
+  <nav class="song-list" aria-label="Canciones">
+    {
+      catalog.songs.length === 0 ? (
+        <p class="empty-state">Todavía no hay canciones.</p>
+      ) : (
+        <ul class="tracks">
+          {catalog.songs.map((song, index) => {
+            const album = albumsById.get(song.albumId);
+            const meta = [album?.year, album?.place].filter(Boolean).join(' · ');
+            const cover = assetUrl(album?.cover);
+            return (
+              <li>
+                <a
+                  class="track"
+                  href={`/song/${song.id}/`}
+                  aria-current={song.id === currentSongId ? 'page' : undefined}
+                >
+                  <span class="track-no" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span class="track-cover">
+                    {cover ? (
+                      <img src={cover} alt="" loading="lazy" decoding="async" width="48" height="48" />
+                    ) : (
+                      <span class="track-cover-fallback" aria-hidden="true">
+                        {initials(album?.title ?? '?')}
+                      </span>
+                    )}
+                  </span>
+                  <span class="track-copy">
+                    <span class="track-title">{song.title}</span>
+                    <span class="track-artist">{song.artist}</span>
+                    {meta && <span class="track-meta">{meta}</span>}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )
+    }
+  </nav>
+
+  <footer class="sidebar-footer">
+    <span>{total} {total === 1 ? 'canción' : 'canciones'}</span>
+    <span class="sidebar-mark">R.A.P.</span>
+  </footer>
+
+  {
+    catalog.meta.playlist && (
+      <div class="playlist-slot">
+        {catalog.meta.playlist.url ? (
+          <a
+            class="playlist-link"
+            href={catalog.meta.playlist.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h10" />
+            </svg>
+            {catalog.meta.playlist.label}
+          </a>
+        ) : (
+          <span class="playlist-link is-placeholder" title="Añade la URL en data/site.yaml">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h10" />
+            </svg>
+            {catalog.meta.playlist.label}
+          </span>
+        )}
+      </div>
+    )
+  }
+</aside>

@@ -1,0 +1,72 @@
+---
+import type { Group, Person } from '../lib/types';
+
+interface Props {
+  /** A person or a group; the popover content adapts. */
+  info: Person | Group;
+  /** Needed to resolve group member names. */
+  peopleById?: Map<string, Person>;
+  /**
+   * 'chip' renders the pill used for credits; 'trigger' renders the
+   * underlined text used for artist/feature names.
+   */
+  variant?: 'chip' | 'trigger';
+}
+
+const { info, peopleById, variant = 'chip' } = Astro.props;
+const isPerson = 'kind' in info && info.kind !== undefined;
+
+const kind = isPerson ? (info.kind === 'dj' ? 'DJ' : 'MC') : 'Grupo';
+const color = isPerson ? info.color : 'var(--accent-2)';
+
+type Row = [string, string];
+const rows: Row[] = [];
+
+if (isPerson) {
+  const person = info as Person;
+  if (person.fullName) rows.push(['Nombre completo', person.fullName]);
+  if (person.birthplace) rows.push(['Lugar de nacimiento', person.birthplace]);
+  if (person.aliases.length) rows.push(['Alias', person.aliases.join(', ')]);
+  if (person.groups.length) rows.push(['Grupos', person.groups.map((g) => g.name).join(', ')]);
+} else {
+  const group = info as Group;
+  const memberSummary = (id: string) => {
+    const person = peopleById?.get(id);
+    return person ? (person.fullName ? `${person.name} (${person.fullName})` : person.name) : id;
+  };
+  if (group.mcs.length) rows.push(['MCs', group.mcs.map(memberSummary).join(', ')]);
+  if (group.djs.length) rows.push(['DJs', group.djs.map(memberSummary).join(', ')]);
+}
+
+const rootClass = variant === 'chip' ? 'chip chip-details' : 'info-trigger';
+---
+
+<details class={rootClass} style={`--person-color: ${color}`}>
+  <summary>
+    {variant === 'chip' && <span class="chip-dot" aria-hidden="true"></span>}
+    {info.name}
+  </summary>
+  <div class="chip-pop" role="dialog" aria-label={`Información sobre ${info.name}`}>
+    <p class="chip-pop-head">
+      <span class="chip-pop-dot" aria-hidden="true"></span>
+      <span>
+        <strong class="chip-pop-name">{info.name}</strong>
+        <span class="chip-pop-kind">{kind}</span>
+      </span>
+    </p>
+    {
+      rows.length ? (
+        <dl class="chip-pop-facts">
+          {rows.map(([label, value]) => (
+            <>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </>
+          ))}
+        </dl>
+      ) : (
+        <p class="chip-pop-empty">Sin información adicional.</p>
+      )
+    }
+  </div>
+</details>

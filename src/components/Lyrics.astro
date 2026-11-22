@@ -1,0 +1,70 @@
+---
+import type { Song } from '../lib/types';
+
+interface Props {
+  song: Song;
+}
+
+const { song } = Astro.props;
+const parts = song.lyrics?.parts ?? [];
+
+function accentFor(performers: { color?: string }[]): string | null {
+  const colors = performers.map((p) => p.color).filter(Boolean) as string[];
+  if (!colors.length) return null;
+  if (colors.length === 1) return colors[0];
+  return `linear-gradient(180deg, ${colors.join(', ')})`;
+}
+---
+
+<section class="lyrics-section">
+  <div class="lyrics-head">
+    <div>
+      <h2 class="lyrics-title">Letra</h2>
+    </div>
+  </div>
+
+  {
+    parts.length === 0 ? (
+      <p class="lyrics-empty">La letra de esta canción todavía no está disponible.</p>
+    ) : (
+      <div class="lyrics-body">
+        {parts.map((part) => {
+          const accent = accentFor(part.performers);
+          return (
+            <section
+              class="part"
+              data-kind={part.kind}
+              style={accent ? `--part-accent: ${accent}` : undefined}
+            >
+              <header class="part-head">
+                <span class="part-label">{part.label}</span>
+                {part.performers.length > 0 && (
+                  <span class="part-performers">
+                    {part.performers.map((performer) => (
+                      <span
+                        class="performer"
+                        style={`--person-color: ${performer.color}`}
+                        title={performer.kind === 'dj' ? 'DJ' : performer.kind === 'mc' ? 'MC' : undefined}
+                      >
+                        {performer.name}
+                      </span>
+                    ))}
+                  </span>
+                )}
+              </header>
+              <div class="part-body">
+                {part.stanzas.map((stanza) => (
+                  <p class="stanza">
+                    {stanza.map((line) => (
+                      <span class="line">{line}</span>
+                    ))}
+                  </p>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    )
+  }
+</section>

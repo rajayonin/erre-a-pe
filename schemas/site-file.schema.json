@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://erre-a-pe.local/schemas/site-file.schema.json",
+  "title": "site.yaml",
+  "type": "object",
+  "required": ["site"],
+  "properties": {
+    "site": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "place": {
+          "type": ["string", "null"],
+          "description": "Place shown in the sidebar subtitle before the year span."
+        },
+        "playlist": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
+              "description": "Text shown for the playlist link in the sidebar."
+            },
+            "url": {
+              "type": ["string", "null"],
+              "description": "Playlist URL. Leave empty to show a placeholder."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

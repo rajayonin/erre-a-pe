@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../schemas/songs-file.schema.json
+songs:
+  - id: cantando
+    title: Cantando
+    artist: Violadores Del Verso
+    album: vivir-para-contarlo
+    mcs:
+      - Kase.O
+    djs:
+      - R de Rumba
+    lyrics: lyrics/cantando.txt
+    # Direct links (optional). When left empty, the site falls back to
+    # YouTube/Spotify search URLs for this song.
+    youtube: ''
+    spotify: ''
+
+  - id: solo-importa-el-rap
+    title: Solo Importa el Rap
+    artist: Xhelazz
+    album: el-sonador-elegido
+    features:
+      - Violadores Del Verso
+    mcs:
+      - Lírico
+      - Kase.O
+      - Sho-Hai
+      - Xhelazz
+    djs:
+      - R de Rumba
+    lyrics: lyrics/solo-importa-el-rap.txt
+    youtube: ''
+    spotify: ''

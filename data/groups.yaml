@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../schemas/groups-file.schema.json
+groups:
+  - id: violadores-del-verso
+    name: Violadores Del Verso
+    mcs:
+      - Kase.O
+      - Sho-Hai
+      - Lírico
+    djs:
+      - R de Rumba

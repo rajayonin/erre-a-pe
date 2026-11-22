@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://erre-a-pe.local/schemas/songs-file.schema.json",
+  "title": "songs.yaml",
+  "type": "object",
+  "required": ["songs"],
+  "properties": {
+    "songs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "artist", "album"],
+        "properties": {
+          "id": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/slug" },
+          "title": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "artist": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "album": {
+            "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
+            "description": "Album id (preferred) or exact album title."
+          },
+          "features": {
+            "type": "array",
+            "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+            "uniqueItems": true
+          },
+          "mcs": {
+            "type": "array",
+            "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+            "uniqueItems": true
+          },
+          "djs": {
+            "type": "array",
+            "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+            "uniqueItems": true
+          },
+          "lyrics": {
+            "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
+            "description": "Path to a lyrics .txt file, relative to the repository root."
+          },
+          "youtube": {
+            "type": ["string", "null"],
+            "description": "Optional direct YouTube URL for this song. Empty falls back to a search link."
+          },
+          "spotify": {
+            "type": ["string", "null"],
+            "description": "Optional direct Spotify URL for this song. Empty falls back to a search link."
+          },
+          "audio": {
+            "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
+            "description": "Optional audio file, relative to the repository root."
+          },
+          "links": {
+            "type": "array",
+            "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/link" }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

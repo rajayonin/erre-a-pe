@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://erre-a-pe.local/schemas/djs-file.schema.json",
+  "title": "djs.yaml",
+  "type": "object",
+  "required": ["djs"],
+  "properties": {
+    "djs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/dj" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "dj": {
+      "type": "object",
+      "required": ["artist-name"],
+      "properties": {
+        "artist-name": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+        "full-name": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+        "aliases": {
+          "type": "array",
+          "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
+          "uniqueItems": true
+        },
+        "birthplace": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
