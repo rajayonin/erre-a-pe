@@ -1,4 +1,4 @@
-import type { Group, Person, PersonKind, RawGroup, RawPerson } from './types';
+import type { Group, Person, RawGroup, RawPerson } from './types';
 import { normalizeName, slugify, unique } from './slug';
 
 export const PERSON_COLORS = [
@@ -32,16 +32,15 @@ export class PeopleState {
     if (key && !this.aliasIndex.has(key)) this.aliasIndex.set(key, person);
   }
 
-  private make(raw: RawPerson, kind: PersonKind): Person {
+  private make(raw: RawPerson): Person {
     const name = raw['artist-name'];
     const id = slugify(name);
-    if (!id) throw new Error(`Cannot derive an id from ${kind} name "${name}"`);
-    if (this.byId.has(id)) throw new Error(`Duplicate ${kind} id "${id}" (${name})`);
+    if (!id) throw new Error(`Cannot derive an id from artist name "${name}"`);
+    if (this.byId.has(id)) throw new Error(`Duplicate artist id "${id}" (${name})`);
 
     const person: Person = {
       id,
       name,
-      kind,
       aliases: raw.aliases ?? [],
       groups: [],
       color: this.nextColor(),
@@ -57,9 +56,8 @@ export class PeopleState {
     return person;
   }
 
-  load(mcs: RawPerson[], djs: RawPerson[]): void {
-    mcs.forEach((raw) => this.make(raw, 'mc'));
-    djs.forEach((raw) => this.make(raw, 'dj'));
+  load(artists: RawPerson[]): void {
+    artists.forEach((raw) => this.make(raw));
 
     // Canonical names win over aliases when two people could match the same key.
     for (const person of this.people) this.register(person.name, person);
@@ -69,7 +67,7 @@ export class PeopleState {
   }
 
   /** Register a person referenced only inline (song or group), if not already known. */
-  ensurePerson(name: string, kind: PersonKind, context: string): Person {
+  ensurePerson(name: string, context: string): Person {
     const key = normalizeName(name);
     const found = this.aliasIndex.get(key);
     if (found) return found;
@@ -82,7 +80,6 @@ export class PeopleState {
     const person: Person = {
       id,
       name: String(name).trim(),
-      kind,
       aliases: [],
       groups: [],
       color: this.nextColor(),
@@ -90,7 +87,7 @@ export class PeopleState {
     this.people.push(person);
     this.byId.set(id, person);
     this.register(person.name, person);
-    this.warnings.push(`Added missing ${kind.toUpperCase()} "${name}" referenced by ${context}.`);
+    this.warnings.push(`Added missing artist "${name}" referenced by ${context}.`);
     return person;
   }
 
@@ -138,8 +135,8 @@ export function normalizeGroups(sourceGroups: RawGroup[], state: PeopleState): G
       id,
       name: source.name,
       carreer: source.carreer,
-      mcs: unique((source.mcs ?? []).map((name) => state.ensurePerson(name, 'mc', `group "${source.name}"`).id)),
-      djs: unique((source.djs ?? []).map((name) => state.ensurePerson(name, 'dj', `group "${source.name}"`).id)),
+      mcs: unique((source.mcs ?? []).map((name) => state.ensurePerson(name, `group "${source.name}"`).id)),
+      djs: unique((source.djs ?? []).map((name) => state.ensurePerson(name, `group "${source.name}"`).id)),
     };
 
     groups.push(group);

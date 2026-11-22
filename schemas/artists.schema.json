@@ -1,18 +1,18 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://erre-a-pe.local/schemas/djs-file.schema.json",
-  "title": "djs.yaml",
+  "$id": "https://erre-a-pe.local/schemas/artists.schema.json",
+  "title": "artists.yaml",
   "type": "object",
-  "required": ["djs"],
+  "required": ["artists"],
   "properties": {
-    "djs": {
+    "artists": {
       "type": "array",
-      "items": { "$ref": "#/$defs/dj" }
+      "items": { "$ref": "#/$defs/artist" }
     }
   },
   "additionalProperties": false,
   "$defs": {
-    "dj": {
+    "artist": {
       "type": "object",
       "required": ["artist-name"],
       "properties": {

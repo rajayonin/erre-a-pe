@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../schemas/albums-file.schema.json
+# yaml-language-server: $schema=../schemas/albums.schema.json
 albums:
   - title: Vivir para Contarlo
     artist: Violadores Del Verso

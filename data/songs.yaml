@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../schemas/songs-file.schema.json
+# yaml-language-server: $schema=../schemas/songs.schema.json
 songs:
   - title: Cantando
     artist: Violadores Del Verso

@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../schemas/site-file.schema.json
+# yaml-language-server: $schema=../schemas/site.schema.json
 site:
   title: Erre a Pé
   tagline: Decibelia Listening Party

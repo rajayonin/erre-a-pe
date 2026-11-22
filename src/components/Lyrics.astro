@@ -46,7 +46,6 @@ function accentFor(performers: { color?: string }[]): string | null {
                       <span
                         class="performer"
                         style={`--person-color: ${performer.color}`}
-                        title={performer.kind === 'dj' ? 'DJ' : performer.kind === 'mc' ? 'MC' : undefined}
                       >
                         {performer.name}{performer.passed ? ' (†)' : ''}
                       </span>

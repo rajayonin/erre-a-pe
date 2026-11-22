@@ -10,8 +10,7 @@ export const SITE_META = { title: 'Erre a Pé', tagline: 'Letras de rap para esc
 
 const SOURCE_FILES = {
   site: 'site.yaml',
-  mcs: 'mcs.yaml',
-  djs: 'djs.yaml',
+  artists: 'artists.yaml',
   groups: 'groups.yaml',
   albums: 'albums.yaml',
   songs: 'songs.yaml',
@@ -107,14 +106,9 @@ async function normalizeSongs(
   const albumById = new Map(albums.map((album) => [album.id, album]));
   const albumByTitle = new Map(albums.map((album) => [normalizeName(album.title), album]));
 
-  const requirePerson = (name: string, kind: 'mc' | 'dj', label: string) => {
+  const requirePerson = (name: string, label: string) => {
     const person = peopleState.resolvePerson(name);
-    if (!person) throw new Error(`Unknown ${kind.toUpperCase()} "${name}" in ${label}`);
-    if (person.kind !== kind) {
-      warnings.push(
-        `"${name}" is listed as a ${kind.toUpperCase()} in ${label} but is stored as ${person.kind.toUpperCase()}.`,
-      );
-    }
+    if (!person) throw new Error(`Unknown artist "${name}" in ${label}`);
     return person.id;
   };
 
@@ -126,15 +120,15 @@ async function normalizeSongs(
     if (!album) throw new Error(`Song "${source.title}" references unknown album "${source.album}"`);
 
     const label = `song "${source.title}"`;
-    const mcs = unique((source.mcs ?? []).map((name) => requirePerson(name, 'mc', label)));
-    const djs = unique((source.djs ?? []).map((name) => requirePerson(name, 'dj', label)));
+    const mcs = unique((source.mcs ?? []).map((name) => requirePerson(name, label)));
+    const djs = unique((source.djs ?? []).map((name) => requirePerson(name, label)));
     const features = unique(source.features ?? []);
 
     for (const feature of features) {
       const isGroup = groups.some((group) => normalizeName(group.name) === normalizeName(feature));
       const isPerson = peopleState.resolvePerson(feature) !== undefined;
       if (!isGroup && !isPerson) {
-        warnings.push(`Feature "${feature}" in ${label} is not listed in groups.yaml, mcs.yaml, or djs.yaml.`);
+        warnings.push(`Feature "${feature}" in ${label} is not listed in groups.yaml or artists.yaml.`);
       }
     }
 
@@ -192,8 +186,7 @@ function zipSourceFiles(documents: unknown[]): RawFiles {
 
 interface RawFiles {
   site: { site: RawSite['site'] };
-  mcs: { mcs: RawPerson[] };
-  djs: { djs: RawPerson[] };
+  artists: { artists: RawPerson[] };
   groups: { groups: RawGroup[] };
   albums: { albums: RawAlbum[] };
   songs: { songs: RawSong[] };
@@ -205,16 +198,16 @@ export async function buildCatalog(root = process.cwd()): Promise<Catalog> {
   process.chdir(root);
   try {
     const documents = await Promise.all(Object.values(SOURCE_FILES).map((file) => readYamlFile(file)));
-    const { site: siteFile, mcs, djs, groups, albums, songs } = zipSourceFiles(documents);
+    const { site: siteFile, artists, groups, albums, songs } = zipSourceFiles(documents);
     const site = siteFile.site;
 
     const peopleState = new PeopleState(warnings);
-    peopleState.load(mcs.mcs, djs.djs);
+    peopleState.load(artists.artists);
     const groupList = normalizeGroups(groups.groups, peopleState);
 
     for (const song of songs.songs) {
-      for (const name of song.mcs ?? []) peopleState.ensurePerson(name, 'mc', `song "${song.title}"`);
-      for (const name of song.djs ?? []) peopleState.ensurePerson(name, 'dj', `song "${song.title}"`);
+      for (const name of song.mcs ?? []) peopleState.ensurePerson(name, `song "${song.title}"`);
+      for (const name of song.djs ?? []) peopleState.ensurePerson(name, `song "${song.title}"`);
     }
 
     const albumList = await normalizeAlbums(albums.albums, warnings);

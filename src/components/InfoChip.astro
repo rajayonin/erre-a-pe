@@ -16,11 +16,11 @@ interface Props {
 }
 
 const { info, peopleById, currentYear, variant = 'chip' } = Astro.props;
-const isPerson = 'kind' in info && info.kind !== undefined;
+const isPerson = 'aliases' in info;
 const isPassed = isPerson && Boolean((info as Person).passed);
 const displayName = isPassed ? `${info.name} (†)` : info.name;
 
-const kind = isPerson ? (info.kind === 'dj' ? 'DJ' : 'MC') : 'Grupo';
+const kind = isPerson ? 'Artista' : 'Grupo';
 const color = isPerson ? info.color : 'var(--accent-2)';
 
 type Row = [string, string, boolean?];

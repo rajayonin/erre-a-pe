@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://erre-a-pe.local/schemas/albums-file.schema.json",
+  "$id": "https://erre-a-pe.local/schemas/albums.schema.json",
   "title": "albums.yaml",
   "type": "object",
   "required": ["albums"],

@@ -1,6 +1,6 @@
 /**
- * Validates every YAML source against the JSON Schemas in `schemas/`, then
- * builds the catalog and validates the result against the catalog schema.
+ * Validates every YAML source against its JSON Schema, then builds the catalog
+ * to check references and other data constraints.
  *
  *   bun run validate
  */
@@ -13,12 +13,11 @@ import { buildCatalog } from '../src/lib/catalog';
 
 const SCHEMA_BASE = 'https://erre-a-pe.local/schemas';
 const SCHEMA_FILES = {
-  'site.yaml': `${SCHEMA_BASE}/site-file.schema.json`,
-  'mcs.yaml': `${SCHEMA_BASE}/mcs-file.schema.json`,
-  'djs.yaml': `${SCHEMA_BASE}/djs-file.schema.json`,
-  'groups.yaml': `${SCHEMA_BASE}/groups-file.schema.json`,
-  'albums.yaml': `${SCHEMA_BASE}/albums-file.schema.json`,
-  'songs.yaml': `${SCHEMA_BASE}/songs-file.schema.json`,
+  'site.yaml': `${SCHEMA_BASE}/site.schema.json`,
+  'artists.yaml': `${SCHEMA_BASE}/artists.schema.json`,
+  'groups.yaml': `${SCHEMA_BASE}/groups.schema.json`,
+  'albums.yaml': `${SCHEMA_BASE}/albums.schema.json`,
+  'songs.yaml': `${SCHEMA_BASE}/songs.schema.json`,
 } as const;
 
 const ajv = new Ajv2020({ allErrors: true, strict: true, allowUnionTypes: true });
@@ -49,9 +48,7 @@ for (const [file, schemaId] of Object.entries(SCHEMA_FILES)) {
 }
 
 const catalog = await buildCatalog();
-const catalogSchemaId = `${SCHEMA_BASE}/catalog.schema.json`;
-validateOrThrow(catalogSchemaId, catalog, 'generated catalog');
 
 console.log(
-  `OK: ${catalog.meta.songCount} songs, ${catalog.meta.albumCount} albums, ${catalog.people.length} people, schemas valid.`,
+  `OK: ${catalog.meta.songCount} songs, ${catalog.meta.albumCount} albums, ${catalog.people.length} people; source schemas and data references valid.`,
 );

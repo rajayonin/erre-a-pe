@@ -96,11 +96,11 @@ export function parseLyrics(
     const name = rawName.trim();
     const person = lookupPerson(name);
     if (person) {
-      const performer: Performer = { id: person.id, name: person.name, kind: person.kind, color: person.color };
+      const performer: Performer = { id: person.id, name: person.name, color: person.color };
       if (person.passed) performer.passed = true;
       return performer;
     }
-    return { id: null, name, kind: 'other', color: colorForUnknown(name) };
+    return { id: null, name, color: colorForUnknown(name) };
   };
 
   const flushStanza = () => {

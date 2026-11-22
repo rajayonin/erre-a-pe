@@ -1,5 +1,3 @@
-export type PersonKind = 'mc' | 'dj';
-
 export interface Career {
   start?: number;
   end?: number;
@@ -13,7 +11,6 @@ export interface PersonGroup {
 export interface Person {
   id: string;
   name: string;
-  kind: PersonKind;
   fullName?: string;
   birthplace?: string;
   birthyear?: number;
@@ -52,7 +49,6 @@ export interface Link {
 export interface Performer {
   id: string | null;
   name: string;
-  kind: PersonKind | 'other';
   color: string;
   passed?: boolean;
 }

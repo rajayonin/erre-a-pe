@@ -43,7 +43,7 @@ bun run preview  # serve the dist/ build
    the build also looks for `data/covers/<id>.<ext>` or
    `data/covers/<slug-of-title>.<ext>` with `.jpeg`, `.jpg`, `.png` or `.webp`.
 
-2. Register the people in `data/mcs.yaml` / `data/djs.yaml` (or let the build add
+2. Register the people in `data/artists.yaml` (or let the build add
    them with a warning), then add the song to `data/songs.yaml`:
 
    ```yaml
@@ -63,8 +63,8 @@ bun run preview  # serve the dist/ build
    ```
 
    `album` accepts the exact album title. `features` can name a group or a
-   registered MC or DJ; the build warns when a feature is not present in
-   `groups.yaml`, `mcs.yaml` or `djs.yaml`.
+   registered artist; the build warns when a feature is not present in
+   `groups.yaml` or `artists.yaml`.
    `youtube` and `spotify` are optional direct links per song; when left empty,
    the song page falls back to YouTube/Spotify search URLs.
 
@@ -74,7 +74,7 @@ bun run preview  # serve the dist/ build
 ### People and aliases
 
 ```yaml
-mcs:
+artists:
   - artist-name: Kase.O
     full-name: Javier Ibarra
     aliases:
@@ -87,7 +87,7 @@ mcs:
 case-insensitively and ignoring accents, spaces and punctuation, so `RdeRumba`
 resolves to `R de Rumba` and `Lirico` to `Lírico`. Canonical names win over
 aliases when two people could match the same key. A person referenced by a song
-but missing from the YAML files is added automatically and reported as a warning.
+but missing from the YAML file is added automatically and reported as a warning.
 
 ## Lyrics format
 
@@ -122,6 +122,5 @@ Add a repeat count after a part header to show a repeat badge on the song page:
 
 ## Data schemas
 
-Every source file and the generated catalogue are described by JSON Schema
-files in [`schemas/`](schemas/). See [`schemas/README.md`](schemas/README.md)
-for the field-by-field overview and how validation is wired up.
+The source YAML files are described by JSON Schema files in [`schemas/`](schemas/).
+See [`schemas/README.md`](schemas/README.md) for the overview and validation flow.

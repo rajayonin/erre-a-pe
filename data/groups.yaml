@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../schemas/groups-file.schema.json
+# yaml-language-server: $schema=../schemas/groups.schema.json
 groups:
   - name: Violadores Del Verso
     carreer:
