@@ -31,3 +31,17 @@ djs:
     birthyear: 1979
     carreer:
       start: 2000
+
+  - artist-name: Jefe de la M
+    full-name: Aitor Millán
+    birthplace: Málaga
+    birthyear: 1978
+    carreer:
+      start: 2000
+
+  - artist-name: Acción Sánchez
+    full-name: Óscar Sánchez
+    birthplace: Sevilla (Pino Montano)
+    birthyear: 1977
+    carreer:
+      start: 1993

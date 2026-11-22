@@ -34,3 +34,19 @@ groups:
       - Frank T
     djs:
       - Jotamayúscula
+
+  - name: SFDK
+    carreer:
+      start: 1994
+    mcs:
+      - Zatu
+    djs:
+      - Acción Sánchez
+  
+  - name: La Excepción
+    carreer:
+      start: 2003
+      end: 2013
+    mcs:
+      - El Langui
+      - Gitano Antón

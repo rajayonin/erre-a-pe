@@ -105,5 +105,40 @@ mcs:
     carreer:
       start: 1997
       end: 2024
+
+  - artist-name: Nach
+    full-name: Ignacio José Fornés
+    birthplace: Alicante
+    birthyear: 1974
+    carreer:
+      start: 1994
+
+  - artist-name: Zatu
+    full-name: Saturnino Rey
+    birthplace: Sevilla (Pino Montano)
+    birthyear: 1977
+    carreer:
+      start: 1993
+
+  - artist-name: Mala Rodríguez
+    full-name: María Rodríguez
+    birthplace: Sevilla (La Macarena)
+    birthyear: 1979
     aliases:
-      - Toterreno
+      - Mala María
+    carreer:
+      start: 1996
+
+  - artist-name: El Langui
+    full-name: Juan Manuel Montilla
+    birthplace: Madrid (Pan Bendito)
+    birthyear: 1979
+    carreer:
+      start: 2002
+
+  - artist-name: Gitano Antón
+    full-name: Antonio Moreno
+    birthplace: Madrid (Pan Bendito)
+    birthyear: 1979
+    carreer:
+      start: 2002

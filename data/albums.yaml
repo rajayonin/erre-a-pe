@@ -4,14 +4,21 @@ albums:
     artist: Violadores Del Verso
     year: 2006
     place: Zaragoza
-    label: Rap Solo / Boa Musica
+    label: Rap Solo
     cover: album-covers/vivir-para-contarlo.jpeg
+
+  - title: Genios
+    artist: Violadores Del Verso
+    year: 1999
+    place: Zaragoza
+    label: Rap Solo
+    cover: album-covers/genios.jpeg
 
   - title: El Soñador Elegido
     artist: Xhelazz
     year: 2007
     place: Zaragoza
-    label: Rap Solo / Boa Musica
+    label: Rap Solo
     cover: album-covers/el-soñador-elegido.jpeg
 
   - title: Verso Municcione
@@ -34,3 +41,31 @@ albums:
     place: Sevilla
     label: Boa Música
     cover: album-covers/un-tipo-cualquiera.jpeg
+
+  - title: Poesía Difusa
+    year: 2003
+    artist: Nach
+    place: Alicante
+    label: Boa Música
+    cover: album-covers/poesia-difusa.jpeg
+
+  - title: "2001: Odisea en el lodo"
+    year: 2003
+    artist: SFDK
+    place: Sevilla
+    label: Zona Bruta
+    cover: album-covers/2001-odisea-en-el-lodo.jpeg
+
+  - title: R de Rumba
+    year: 2004
+    artist: R de Rumba
+    place: Zaragoza
+    label: Rap Solo
+    cover: album-covers/r-de-rumba.jpeg
+
+  - title: Cata Cheli
+    year: 2003
+    artist: La Excepción
+    place: Madrid
+    label: Zona Bruta
+    cover: album-covers/cata-cheli.jpeg

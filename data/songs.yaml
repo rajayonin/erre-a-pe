@@ -39,6 +39,17 @@ songs:
     youtube: https://youtu.be/JAPu2CVqThM
     spotify: https://open.spotify.com/track/4ebVgCsZ2bMb0llev1NbkG
 
+  - title: Ballantains (Token International Remix)
+    artist: Violadores del Verso
+    album: Genios
+    mcs:
+      - Kase.O
+    djs:
+      - Jotamayúscula
+    lyrics: lyrics/ballantains
+    spotify: https://open.spotify.com/track/762TEBKbslUZPeEdiIYwYE
+    youtube: https://youtu.be/wUDPs66UJYM
+
   - title: Solo Importa el Rap
     artist: Xhelazz
     album: El Soñador Elegido
@@ -68,6 +79,17 @@ songs:
     youtube: https://youtu.be/Va-exN6k4s8
     spotify: https://open.spotify.com/track/4oaV7KVzqwi2c1UmRFBeI9
 
+  - title: Esto Es Historia
+    artist: Xhelazz
+    album: El Soñador Elegido
+    mcs:
+      - Xhelazz
+    djs:
+      - R de Rumba
+    lyrics: lyrics/esto-es-historia
+    spotify: https://open.spotify.com/track/0rOsR4ShxSGxdROxi8vg7K?si=5736a8cdc6214982
+    youtube: https://youtu.be/iDEf3KHnQ9c
+
   - title: Ni de Ellos ni de Ellas
     artist: ToteKing
     album: Un Tipo Cualquiera
@@ -77,4 +99,52 @@ songs:
       - Big Hozone
     lyrics: lyrics/ni-de-ellos-ni-de-ellas
     spotify: https://open.spotify.com/track/39wZnCweVaOR3J6HSK3Dvs
+    youtube: https://youtu.be/mOzT06QOFuc
 
+  - title: Yo contra todos
+    artist: SFDK
+    album: "2001: Odisea en el lodo"
+    mcs:
+      - Zatu
+    djs:
+      - Jefe de la M
+      - Acción Sánchez
+    lyrics: lyrics/yo-contra-todos
+    spotify: https://open.spotify.com/track/0qml1BcKzKQMRl2KnwOMza
+    youtube: https://youtu.be/gM_h1dUhs4U
+
+  - title: Fabricante
+    album: R de Rumba
+    artist: R de Rumba
+    features:
+      - Mala Rodríguez
+    mcs:
+      - Mala Rodríguez
+    djs:
+      - R de Rumba
+    lyrics: lyrics/fabricante
+    spotify: https://open.spotify.com/track/6Td8cPzVYEtSB8Wi9Z6Wvi
+    youtube: https://youtu.be/c8j_gOZA3qU
+
+  - title: Chico Problemático
+    artist: Nach
+    album: Poesía Difusa
+    mcs:
+      - Nach
+    djs:
+      - Jefe de la M
+    lyrics: lyrics/chico-problematico
+    spotify: https://open.spotify.com/track/4DMdt8EA0t0QcKk1j4XXNF
+    youtube: https://youtu.be/bI1ihD1HxWY
+
+  - title: Oye Compai
+    artist: La Excepción
+    album: Cata Cheli
+    mcs:
+      - El Langui
+      - Gitano Antón
+    djs:
+      - Frank T
+    lyrics: lyrics/oye-compai
+    spotify: https://open.spotify.com/track/538zkgS4TUwhZYMDzXoKUR
+    youtube: https://youtu.be/39bq4JSOV98?si=P72KHRuJfapwh9YM
