@@ -52,7 +52,8 @@
         },
         "name": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
         "kind": { "enum": ["mc", "dj", "other"] },
-        "color": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/hexColor" }
+        "color": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/hexColor" },
+        "passed": { "type": "boolean" }
       },
       "additionalProperties": false
     }

@@ -18,6 +18,7 @@ export interface Person {
   birthplace?: string;
   birthyear?: number;
   carreer?: Career;
+  passed?: boolean;
   aliases: string[];
   groups: PersonGroup[];
   color: string;
@@ -53,6 +54,7 @@ export interface Performer {
   name: string;
   kind: PersonKind | 'other';
   color: string;
+  passed?: boolean;
 }
 
 export type PartKind =
@@ -122,6 +124,7 @@ export interface RawPerson {
   birthplace?: string;
   birthyear?: number;
   carreer?: Career;
+  passed?: boolean;
 }
 
 export interface RawGroup {

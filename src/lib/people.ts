@@ -47,6 +47,7 @@ export class PeopleState {
       color: this.nextColor(),
       birthyear: raw.birthyear
     };
+    if (raw.passed !== undefined) person.passed = raw.passed;
     if (raw.carreer) person.carreer = raw.carreer;
     if (raw['full-name']) person.fullName = raw['full-name'];
     if (raw.birthplace) person.birthplace = raw.birthplace;
@@ -111,7 +112,11 @@ export function resolveArtistInfo(
   name: string,
 ): Person | Group | null {
   const key = normalizeName(name);
-  const group = groups.find((entry) => normalizeName(entry.name) === key);
+  const group = groups.find(
+    (entry) =>
+      normalizeName(entry.name) === key ||
+      normalizeName(entry.name.replace(/\s*\([^)]*\)/g, '')) === key,
+  );
   if (group) return group;
   return (
     people.find(

@@ -1,6 +1,7 @@
 ---
 import type { Catalog } from '../lib/types';
 import { assetUrl } from '../lib/assets';
+import { resolveArtistInfo } from '../lib/people';
 
 interface Props {
   catalog: Catalog;
@@ -54,6 +55,9 @@ const yearSpan =
             const album = albumsById.get(song.albumId);
             const meta = [album?.year, album?.place].filter(Boolean).join(' · ');
             const cover = assetUrl(album?.cover);
+            const artist = resolveArtistInfo(catalog.people, catalog.groups, song.artist);
+            const isPassed = artist && 'passed' in artist && Boolean(artist.passed);
+            const artistLabel = isPassed ? `${song.artist} (†)` : song.artist;
             return (
               <li>
                 <a
@@ -75,7 +79,7 @@ const yearSpan =
                   </span>
                   <span class="track-copy">
                     <span class="track-title">{song.title}</span>
-                    <span class="track-artist">{song.artist}</span>
+                    <span class="track-artist">{artistLabel}</span>
                     {meta && <span class="track-meta">{meta}</span>}
                   </span>
                 </a>

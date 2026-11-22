@@ -23,6 +23,7 @@ djs:
     carreer:
       start: 1993
       end: 2020
+    passed: true
 
   - artist-name: Big Hozone
     full-name: Jorge Masot

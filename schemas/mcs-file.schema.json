@@ -25,7 +25,8 @@
         },
         "birthplace": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString" },
         "birthyear": { "type": "integer", "minimum": 1900, "maximum": 2100 },
-        "carreer": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/career" }
+        "carreer": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/career" },
+        "passed": { "type": "boolean" }
       },
       "additionalProperties": false
     }

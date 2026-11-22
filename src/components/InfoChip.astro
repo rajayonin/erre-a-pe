@@ -17,6 +17,8 @@ interface Props {
 
 const { info, peopleById, currentYear, variant = 'chip' } = Astro.props;
 const isPerson = 'kind' in info && info.kind !== undefined;
+const isPassed = isPerson && Boolean((info as Person).passed);
+const displayName = isPassed ? `${info.name} (†)` : info.name;
 
 const kind = isPerson ? (info.kind === 'dj' ? 'DJ' : 'MC') : 'Grupo';
 const color = isPerson ? info.color : 'var(--accent-2)';
@@ -41,7 +43,8 @@ if (isPerson) {
   if (group.carreer?.start) rows.push(['Años', `${group.carreer.start}–${group.carreer.end ?? 'presente'}`]);
   const memberSummary = (id: string) => {
     const person = peopleById?.get(id);
-    return person?.name ?? id;
+    if (!person) return id;
+    return person.passed ? `${person.name} (†)` : person.name;
   };
   if (group.mcs.length) rows.push(['MC', group.mcs.map(memberSummary).join(', '), group.mcs.length > 1]);
   if (group.djs.length) rows.push(['DJ', group.djs.map(memberSummary).join(', '), group.djs.length > 1]);
@@ -53,13 +56,13 @@ const rootClass = variant === 'chip' ? 'chip chip-details' : 'info-trigger';
 <details class={rootClass} style={`--person-color: ${color}`}>
   <summary>
     {variant === 'chip' && <span class="chip-dot" aria-hidden="true"></span>}
-    {info.name}
+    {displayName}
   </summary>
-  <div class="chip-pop" role="dialog" aria-label={`Información sobre ${info.name}`}>
+  <div class="chip-pop" role="dialog" aria-label={`Información sobre ${displayName}`}>
     <p class="chip-pop-head">
       <span class="chip-pop-dot" aria-hidden="true"></span>
       <span>
-        <strong class="chip-pop-name">{info.name}</strong>
+        <strong class="chip-pop-name">{displayName}</strong>
         <span class="chip-pop-kind">{kind}</span>
       </span>
     </p>

@@ -95,7 +95,11 @@ export function parseLyrics(
   const resolvePerformer = (rawName: string): Performer => {
     const name = rawName.trim();
     const person = lookupPerson(name);
-    if (person) return { id: person.id, name: person.name, kind: person.kind, color: person.color };
+    if (person) {
+      const performer: Performer = { id: person.id, name: person.name, kind: person.kind, color: person.color };
+      if (person.passed) performer.passed = true;
+      return performer;
+    }
     return { id: null, name, kind: 'other', color: colorForUnknown(name) };
   };
 
