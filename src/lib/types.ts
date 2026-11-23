@@ -37,6 +37,7 @@ export interface Album {
   year?: number;
   place?: string;
   label?: string;
+  certified?: 'golden';
   cover?: string;
   links?: Link[];
 }
@@ -138,6 +139,7 @@ export interface RawAlbum {
   year?: number;
   place?: string;
   label?: string;
+  certified?: 'golden';
   cover?: string;
   links?: Link[];
 }

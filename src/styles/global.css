@@ -785,6 +785,19 @@ main:focus {
   color: var(--text);
 }
 
+.album-title-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gold-record-icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
 .credit-row + .credit-row {
   margin-top: 13px;
 }

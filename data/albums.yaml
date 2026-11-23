@@ -5,6 +5,7 @@ albums:
     year: 2006
     place: Zaragoza
     label: Rap Solo
+    certified: golden
     cover: covers/vivir-para-contarlo.jpeg
 
   - title: Genios

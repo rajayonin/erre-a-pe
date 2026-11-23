@@ -86,6 +86,7 @@ async function normalizeAlbums(sourceAlbums: RawAlbum[], warnings: string[]): Pr
     if (source.year !== undefined) album.year = source.year;
     if (source.place) album.place = source.place;
     if (source.label) album.label = source.label;
+    if (source.certified) album.certified = source.certified;
     if (cover) album.cover = cover;
     if (source.links) album.links = source.links;
 

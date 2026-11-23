@@ -26,7 +26,12 @@ const djs = song.credits.djs.map((id) => peopleById.get(id)).filter(Boolean);
     <div class="panel-content">
       <dl class="album-facts">
         <dt class="fact-label">Álbum</dt>
-        <dd class="fact-value">{album?.title ?? song.albumId}</dd>
+        <dd class="fact-value album-title-value">
+          {album?.title ?? song.albumId}
+          {album?.certified === 'golden' && (
+            <img class="gold-record-icon" src={`${import.meta.env.BASE_URL}/icons/gold-record.svg`} alt="Disco de oro" title="Disco certificado como oro" />
+          )}
+        </dd>
         <dt class="fact-label">Artista</dt>
         <dd class="fact-value">{album?.artist ?? song.artist}</dd>
         {album?.year && (
