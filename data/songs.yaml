@@ -8,8 +8,6 @@ songs:
     djs:
       - R de Rumba
     lyrics: lyrics/cantando
-    youtube: https://youtu.be/s9vCva1m8OU
-    spotify: https://open.spotify.com/track/5AIwfXYjGkWCs4KeeTk2Rq
 
   - title: Vivir Para Contarlo
     artist: Violadores Del Verso
@@ -21,8 +19,6 @@ songs:
     djs:
       - R de Rumba
     lyrics: lyrics/vivir-para-contarlo
-    youtube: https://youtu.be/brwIP1wI-FA
-    spotify: https://open.spotify.com/track/17W8iO8o6sO87L4be1rB0l
 
   - title: Rimadero
     artist: C.P.V.
@@ -36,8 +32,6 @@ songs:
     djs:
       - Jotamayúscula
     lyrics: lyrics/rimadero
-    youtube: https://youtu.be/JAPu2CVqThM
-    spotify: https://open.spotify.com/track/4ebVgCsZ2bMb0llev1NbkG
 
   - title: Ballantains (Token International Remix)
     artist: Violadores del Verso
@@ -47,8 +41,6 @@ songs:
     djs:
       - Jotamayúscula
     lyrics: lyrics/ballantains
-    spotify: https://open.spotify.com/track/762TEBKbslUZPeEdiIYwYE
-    youtube: https://youtu.be/wUDPs66UJYM
 
   - title: Solo Importa el Rap
     artist: Xhelazz
@@ -63,8 +55,6 @@ songs:
     djs:
       - R de Rumba
     lyrics: lyrics/solo-importa-el-rap
-    youtube: https://youtu.be/9ovgNGbzTC0
-    spotify: https://open.spotify.com/track/5m01OcrvXDSOjZlov5CWle
 
   - title: L'Enigma D'Esmeralda
     artist: Cloaka Company
@@ -76,8 +66,6 @@ songs:
     djs:
       - Hazhe
     lyrics: lyrics/lenigma-desmeralda
-    youtube: https://youtu.be/Va-exN6k4s8
-    spotify: https://open.spotify.com/track/4oaV7KVzqwi2c1UmRFBeI9
 
   - title: Esto Es Historia
     artist: Xhelazz
@@ -87,8 +75,6 @@ songs:
     djs:
       - R de Rumba
     lyrics: lyrics/esto-es-historia
-    spotify: https://open.spotify.com/track/0rOsR4ShxSGxdROxi8vg7K?si=5736a8cdc6214982
-    youtube: https://youtu.be/iDEf3KHnQ9c
 
   - title: Ni de Ellos ni de Ellas
     artist: ToteKing
@@ -98,8 +84,6 @@ songs:
     djs:
       - Big Hozone
     lyrics: lyrics/ni-de-ellos-ni-de-ellas
-    spotify: https://open.spotify.com/track/39wZnCweVaOR3J6HSK3Dvs
-    youtube: https://youtu.be/mOzT06QOFuc
 
   - title: Yo contra todos
     artist: SFDK
@@ -110,8 +94,6 @@ songs:
       - Jefe de la M
       - Acción Sánchez
     lyrics: lyrics/yo-contra-todos
-    spotify: https://open.spotify.com/track/0qml1BcKzKQMRl2KnwOMza
-    youtube: https://youtu.be/gM_h1dUhs4U
 
   - title: Fabricante
     album: R de Rumba
@@ -123,8 +105,6 @@ songs:
     djs:
       - R de Rumba
     lyrics: lyrics/fabricante
-    spotify: https://open.spotify.com/track/6Td8cPzVYEtSB8Wi9Z6Wvi
-    youtube: https://youtu.be/c8j_gOZA3qU
 
   - title: Chico Problemático
     artist: Nach
@@ -134,8 +114,6 @@ songs:
     djs:
       - Jefe de la M
     lyrics: lyrics/chico-problematico
-    spotify: https://open.spotify.com/track/4DMdt8EA0t0QcKk1j4XXNF
-    youtube: https://youtu.be/bI1ihD1HxWY
 
   - title: Oye Compai
     artist: La Excepción
@@ -146,5 +124,3 @@ songs:
     djs:
       - Frank T
     lyrics: lyrics/oye-compai
-    spotify: https://open.spotify.com/track/538zkgS4TUwhZYMDzXoKUR
-    youtube: https://youtu.be/39bq4JSOV98?si=P72KHRuJfapwh9YM

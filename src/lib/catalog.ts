@@ -158,11 +158,6 @@ async function normalizeSongs(
       features,
       credits: { mcs, djs },
       lyrics,
-      listen: {
-        // Direct URLs from songs.yaml win; fall back to search links.
-        youtube: source.youtube?.trim() || searchUrl('https://www.youtube.com/results?search_query=', query),
-        spotify: source.spotify?.trim() || searchUrl('https://open.spotify.com/search/', query),
-      },
     };
 
     if (source.links) song.links = source.links;

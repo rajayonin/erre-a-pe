@@ -87,7 +87,6 @@ export interface Song {
   features: string[];
   credits: { mcs: string[]; djs: string[] };
   lyrics: Lyrics | null;
-  listen: { youtube: string; spotify: string };
   links?: Link[];
 }
 
@@ -153,8 +152,6 @@ export interface RawSong {
   mcs?: string[];
   djs?: string[];
   lyrics?: string;
-  youtube?: string | null;
-  spotify?: string | null;
   links?: Link[];
 }
 

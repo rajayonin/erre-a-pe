@@ -38,14 +38,6 @@
             "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/nonEmptyString",
             "description": "Path to a lyrics file, relative to the repository root."
           },
-          "youtube": {
-            "type": ["string", "null"],
-            "description": "Optional direct YouTube URL for this song. Empty falls back to a search link."
-          },
-          "spotify": {
-            "type": ["string", "null"],
-            "description": "Optional direct Spotify URL for this song. Empty falls back to a search link."
-          },
           "links": {
             "type": "array",
             "items": { "$ref": "https://erre-a-pe.local/schemas/common.schema.json#/$defs/link" }

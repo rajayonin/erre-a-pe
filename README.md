@@ -58,15 +58,11 @@ bun run preview  # serve the dist/ build
        djs:
          - R de Rumba
        lyrics: lyrics/mi-cancion
-       # youtube: https://www.youtube.com/watch?v=…   # optional direct link
-       # spotify: https://open.spotify.com/track/…    # optional direct link
    ```
 
    `album` accepts the exact album title. `features` can name a group or a
    registered artist; the build warns when a feature is not present in
    `groups.yaml` or `artists.yaml`.
-   `youtube` and `spotify` are optional direct links per song; when left empty,
-   the song page falls back to YouTube/Spotify search URLs.
 
 3. Write the lyrics (see below) and run `bun run dev` — a new page is generated
    automatically at `/song/<id>/`.
