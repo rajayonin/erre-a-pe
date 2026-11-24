@@ -95,7 +95,7 @@ new part; blank lines separate stanzas.
 Primera línea
 Segunda línea
 
-[Verso 1: Kase.O]
+[Verso I: Kase.O]
 ...
 
 [Estribillo: Lírico, Kase.O]

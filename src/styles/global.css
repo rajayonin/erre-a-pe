@@ -1155,10 +1155,6 @@ main:focus {
   background: linear-gradient(90deg, rgba(217, 164, 65, 0.055), transparent 72%);
 }
 
-.part[data-kind="interlude"] .stanza {
-  font-style: italic;
-}
-
 .part[data-kind="intro"] .stanza,
 .part[data-kind="outro"] .stanza {
   color: #ded3c3;
