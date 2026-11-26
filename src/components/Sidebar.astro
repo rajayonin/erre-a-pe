@@ -30,6 +30,16 @@ const yearSpan =
       ? `${Math.min(...years)}`
       : `${Math.min(...years)}—${Math.max(...years)}`
     : null;
+
+const playlist = catalog.meta.playlist;
+const playlistUrl = playlist?.url || undefined;
+const PlaylistTag = playlistUrl ? 'a' : 'span';
+const playlistKicker = playlistUrl
+  ? playlistUrl.includes('spotify.com')
+    ? 'Spotify'
+    : 'Playlist'
+  : 'Sin enlace';
+const playlistCoverUrl = `${import.meta.env.BASE_URL}/erre-a-pe-playlist-cover.svg`;
 ---
 
 <aside class="sidebar" id="sidebar" aria-label="Cancionero">
@@ -100,28 +110,30 @@ const yearSpan =
   </footer>
 
   {
-    catalog.meta.playlist && (
+    playlist && (
       <div class="playlist-slot">
-        {catalog.meta.playlist.url ? (
-          <a
-            class="playlist-link"
-            href={catalog.meta.playlist.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h10" />
-            </svg>
-            {catalog.meta.playlist.label}
-          </a>
-        ) : (
-          <span class="playlist-link is-placeholder" title="Añade la URL en data/site.yaml">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h10" />
-            </svg>
-            {catalog.meta.playlist.label}
+        <PlaylistTag
+          class:list={['playlist-link', { 'is-placeholder': !playlistUrl }]}
+          href={playlistUrl}
+          target={playlistUrl ? '_blank' : undefined}
+          rel={playlistUrl ? 'noopener noreferrer' : undefined}
+          title={playlistUrl ? 'Abrir playlist en una pestaña nueva' : 'Añade la URL en data/site.yaml'}
+        >
+          <span class="playlist-cover">
+            <img src={playlistCoverUrl} alt="" loading="lazy" decoding="async" width="48" height="48" />
           </span>
-        )}
+          <span class="playlist-copy">
+            <span class="playlist-kicker">{playlistKicker}</span>
+            <span class="playlist-label">{playlist.label}</span>
+          </span>
+          {playlistUrl && (
+            <span class="playlist-cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8.5 6.2 18.2 12l-9.7 5.8Z" />
+              </svg>
+            </span>
+          )}
+        </PlaylistTag>
       </div>
     )
   }
